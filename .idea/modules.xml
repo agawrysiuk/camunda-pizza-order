@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/camunda-pizza-order.iml" filepath="$PROJECT_DIR$/.idea/camunda-pizza-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/camunda-pizza-process/camunda-pizza-process.iml" filepath="$PROJECT_DIR$/camunda-pizza-process/camunda-pizza-process.iml" />
       <module fileurl="file://$PROJECT_DIR$/pizza-order-frontend/pizza-order-frontend.iml" filepath="$PROJECT_DIR$/pizza-order-frontend/pizza-order-frontend.iml" />
     </modules>
   </component>
