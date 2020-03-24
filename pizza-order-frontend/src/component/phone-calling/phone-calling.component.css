@@ -1,7 +1,16 @@
 .calling-group {
   position: relative;
   margin-top: 20%;
-  margin-left: 40%;
+  margin-left: 30%;
+  transition: all 500ms ease-in-out;
+}
+
+.calling-group:active > .calling-circle {
+  left: 250px;
+}
+
+.calling-group:active > .calling-image {
+  left: 270px;
 }
 
 .calling-circle {
@@ -11,6 +20,8 @@
   width: 80px;
   height: 80px;
   border-radius: 80px;
+  left: 0;
+  transition: all 500ms ease-in-out;
 }
 
 .calling-image {
@@ -21,13 +32,15 @@
   width: 40px;
   height: auto;
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(90deg) brightness(104%) contrast(97%);
+  transition: all 500ms ease-in-out;
 }
 
 .calling-line {
   position: absolute;
-  width: 300px;
+  width: 275px;
   display: block;
   top: 32px;
+  left: 32px;
   height: 1px;
   border: 0;
   border-top: 1px dashed #ccc;
