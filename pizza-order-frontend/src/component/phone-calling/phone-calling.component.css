@@ -7,10 +7,12 @@
 
 .calling-group:active > .calling-circle {
   left: 250px;
+  background: #048804;
 }
 
 .calling-group:active > .calling-image {
   left: 270px;
+  filter: invert(1) brightness(1);
 }
 
 .calling-circle {
@@ -44,4 +46,5 @@
   height: 1px;
   border: 0;
   border-top: 1px dashed #ccc;
+  z-index: -1;
 }
