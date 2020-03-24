@@ -7,7 +7,7 @@
 .calling-circle {
   position: absolute;
   display: block;
-  background: white;
+  background: #ccc;
   width: 80px;
   height: 80px;
   border-radius: 80px;
@@ -16,8 +16,19 @@
 .calling-image {
   position: absolute;
   z-index: 1;
-  top: 15px;
-  left: 15px;
-  width: 50px;
+  top: 20px;
+  left: 20px;
+  width: 40px;
   height: auto;
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(90deg) brightness(104%) contrast(97%);
+}
+
+.calling-line {
+  position: absolute;
+  width: 300px;
+  display: block;
+  top: 32px;
+  height: 1px;
+  border: 0;
+  border-top: 1px dashed #ccc;
 }
