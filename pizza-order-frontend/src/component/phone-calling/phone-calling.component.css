@@ -2,15 +2,14 @@
   position: relative;
   margin-top: 20%;
   margin-left: 30%;
-  transition: all 500ms ease-in-out;
 }
 
-.calling-group:active > .calling-circle {
+.calling-group:focus > .calling-circle {
   left: 250px;
   background: #048804;
 }
 
-.calling-group:active > .calling-image {
+.calling-group:focus > .calling-image {
   left: 270px;
   filter: invert(1) brightness(1);
 }
