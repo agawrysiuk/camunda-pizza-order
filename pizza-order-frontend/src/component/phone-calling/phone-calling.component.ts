@@ -12,4 +12,7 @@ export class PhoneCallingComponent implements OnInit {
   ngOnInit() {
   }
 
+  moveForward() {
+
+  }
 }
