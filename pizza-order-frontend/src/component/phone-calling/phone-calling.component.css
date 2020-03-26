@@ -1,17 +1,52 @@
-.calling-group {
-  position: relative;
-  margin-top: 20%;
-  margin-left: 30%;
+.center-group {
+  width: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.calling-group:focus > .calling-circle {
-  left: 250px;
+.calling-tab {
+  display: block;
+  width: 450px;
+  height: 600px;
+  /*background-color: #222222;*/
+  border-radius: 16px;
+  /*box-shadow: 0 0 1px 2px #f17012, 0 0 250px 15px #444444 inset;*/
+  box-shadow: 0 0 1px 2px #f17012;
+  background:url(
+  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAIUlEQVQYV2OUlBD7z4AGGEGCz1+8YpCUEGOA0WBB8lUCAPPgEmTu99S8AAAAAElFTkSuQmCC
+  ) repeat;
+}
+
+.calling-animation {
+  width: 100%;
+  position: relative;
+}
+
+.calling-animation:focus > .calling-circle {
+  left: 310px;
   background: #048804;
 }
 
-.calling-group:focus > .calling-image {
-  left: 270px;
+.calling-animation:focus > .calling-image {
+  left: 330px;
   filter: invert(1) brightness(1);
+}
+
+.calling-animation:focus > .calling-text {
+  opacity: 1;
+}
+
+.calling-text {
+  top: 280px;
+  left: 140px;
+  position: absolute;
+  font-family: pan-pizza;
+  font-size: 48px;
+  color: white;
+  opacity: 0;
+  transition: all 500ms ease-in-out;
 }
 
 .calling-circle {
@@ -21,15 +56,17 @@
   width: 80px;
   height: 80px;
   border-radius: 80px;
-  left: 0;
+  left: 60px;
+  top: 400px;
   transition: all 500ms ease-in-out;
+  z-index: 1;
 }
 
 .calling-image {
   position: absolute;
-  z-index: 1;
-  top: 20px;
-  left: 20px;
+  z-index: 2;
+  top: 420px;
+  left: 80px;
   width: 40px;
   height: auto;
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(90deg) brightness(104%) contrast(97%);
@@ -40,10 +77,10 @@
   position: absolute;
   width: 275px;
   display: block;
-  top: 32px;
-  left: 32px;
+  top: 432px;
+  left: 92px;
   height: 1px;
   border: 0;
   border-top: 1px dashed #ccc;
-  z-index: -1;
+  z-index: 0;
 }
