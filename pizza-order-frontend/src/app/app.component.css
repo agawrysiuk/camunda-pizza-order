@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'pan-pizza';
+  src: url('/assets/fonts/panpizza.ttf') format('truetype');
+}
+
 .main {
   height: 100%;
   display: inline-flex;
@@ -14,17 +19,29 @@
   width: 100%;
 }
 
-.h1-title {
-  color: #cccccc;
+.title-text {
+  color: #ffffff;
   text-align: center;
+  font-family: pan-pizza;
+  letter-spacing: 4px;
+  font-weight: 900;
+  font-size: 80px;
+}
+
+.text-orange {
+  color: #f17012;
 }
 
 .main-image {
   position: fixed;
-  bottom: 0;
+  bottom: -10px;
 }
 
 .pizza-image {
   width: 80%;
   height: auto;
+}
+
+.main-content {
+  flex-grow: 1;
 }
