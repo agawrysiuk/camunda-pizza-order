@@ -14,7 +14,7 @@
   border-radius: 16px;
   /*box-shadow: 0 0 1px 2px #f17012, 0 0 250px 15px #444444 inset;*/
   box-shadow: 0 0 1px 2px #f17012;
-  background:url(
+  background: url(
   data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAIUlEQVQYV2OUlBD7z4AGGEGCz1+8YpCUEGOA0WBB8lUCAPPgEmTu99S8AAAAAElFTkSuQmCC
   ) repeat;
 }
@@ -24,18 +24,56 @@
   position: relative;
 }
 
-.calling-animation:focus > .calling-circle {
-  left: 310px;
-  background: #048804;
+.callingCircleAfterClick {
+  animation-name: callingCircleAnimation;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
 
-.calling-animation:focus > .calling-image {
-  left: 330px;
-  filter: invert(1) brightness(1);
+@keyframes callingCircleAnimation {
+  from {
+    left: 60px;
+    background: #cccccc;
+  }
+  to {
+    left: 310px;
+    background: #048804;
+  }
 }
 
-.calling-animation:focus > .calling-text {
-  opacity: 1;
+.callingImageAfterClick {
+  animation-name: callingImageAnimation;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes callingImageAnimation {
+  from {
+    left: 80px;
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(90deg) brightness(104%) contrast(97%);
+  }
+  to {
+    left: 330px;
+    filter: invert(1) brightness(1);
+  }
+}
+
+.callingTextAfterClick {
+  animation-name: callingTextAnimation;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes callingTextAnimation {
+  0%   { opacity:0; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
 }
 
 .calling-text {
