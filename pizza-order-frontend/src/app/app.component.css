@@ -1,0 +1,30 @@
+.main {
+  height: 100%;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.main-left-column {
+  display: inline-flex;
+  flex-direction: column;
+  width: 640px;
+}
+
+.main-title {
+  width: 100%;
+}
+
+.h1-title {
+  color: #cccccc;
+  text-align: center;
+}
+
+.main-image {
+  position: fixed;
+  bottom: 0;
+}
+
+.pizza-image {
+  width: 80%;
+  height: auto;
+}
