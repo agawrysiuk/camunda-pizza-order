@@ -1,18 +1,8 @@
-.center-group {
-  width: 100vh;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .calling-tab {
   display: block;
   width: 350px;
   height: 600px;
-  /*background-color: #222222;*/
   border-radius: 16px;
-  /*box-shadow: 0 0 1px 2px #f17012, 0 0 250px 15px #444444 inset;*/
   box-shadow: 0 0 1px 2px #f17012;
   background: url(
   data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAIUlEQVQYV2OUlBD7z4AGGEGCz1+8YpCUEGOA0WBB8lUCAPPgEmTu99S8AAAAAElFTkSuQmCC
