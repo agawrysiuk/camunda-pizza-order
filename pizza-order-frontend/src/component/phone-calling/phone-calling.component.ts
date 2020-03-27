@@ -16,9 +16,9 @@ export class PhoneCallingComponent implements OnInit {
 
   moveForward(callingCircle: HTMLDivElement, callingImage: HTMLImageElement, callingText: HTMLDivElement) {
     if(!this.clicked) {
-      callingCircle.className += ' callingCircleAfterClick';
-      callingImage.className += ' callingImageAfterClick';
-      callingText.className += ' callingTextAfterClick';
+      callingCircle.className = 'calling-circle callingCircleAfterClick';
+      callingImage.className = 'calling-image callingImageAfterClick';
+      callingText.className = 'calling-text callingTextAfterClick';
       this.clicked = true;
     }
   }

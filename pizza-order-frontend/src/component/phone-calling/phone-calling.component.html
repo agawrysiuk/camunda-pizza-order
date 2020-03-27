@@ -1,12 +1,12 @@
 <div class="center-group">
-  <div class="calling-tab">
+  <div class="calling-tab calling-tab-start-animation">
     <div class="calling-animation" tabindex="1" (click)="moveForward(callingCircle,callingImage,callingText)">
       <div #callingText class="calling-text">
         <p>Calling pizzeria</p>
       </div>
-      <div #callingCircle class="calling-circle"></div>
-      <img #callingImage class="calling-image" src="/assets/svg/calling.svg" alt="calling">
-      <hr class="calling-line"/>
+      <div #callingCircle class="calling-circle opacity-zero calling-start-delayed-animation"></div>
+      <img #callingImage class="calling-image opacity-zero calling-start-delayed-animation" src="/assets/svg/calling.svg" alt="calling">
+      <hr class="calling-line opacity-zero calling-start-delayed-animation"/>
     </div>
   </div>
 </div>

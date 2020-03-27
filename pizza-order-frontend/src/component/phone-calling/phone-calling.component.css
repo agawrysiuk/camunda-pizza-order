@@ -1,12 +1,32 @@
 .calling-tab {
   display: block;
-  width: 350px;
   height: 600px;
   border-radius: 16px;
   box-shadow: 0 0 1px 2px #f17012;
   background: url(
   data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAIUlEQVQYV2OUlBD7z4AGGEGCz1+8YpCUEGOA0WBB8lUCAPPgEmTu99S8AAAAAElFTkSuQmCC
   ) repeat;
+}
+
+.opacity-zero {
+  opacity: 0;
+}
+
+.calling-tab-start-animation {
+  animation-name: callingTabStartAnimation;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes callingTabStartAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 350px;
+  }
 }
 
 .calling-animation {
@@ -111,4 +131,22 @@
   border: 0;
   border-top: 1px dashed #ccc;
   z-index: 0;
+}
+
+.calling-start-delayed-animation {
+  animation-name: callingStartDelayedAnimation;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1000ms;
+}
+
+@keyframes callingStartDelayedAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
