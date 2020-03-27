@@ -8,7 +8,7 @@
 
 .calling-tab {
   display: block;
-  width: 450px;
+  width: 350px;
   height: 600px;
   /*background-color: #222222;*/
   border-radius: 16px;
@@ -38,7 +38,7 @@
     background: #cccccc;
   }
   to {
-    left: 310px;
+    left: 210px;
     background: #048804;
   }
 }
@@ -57,7 +57,7 @@
     filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(90deg) brightness(104%) contrast(97%);
   }
   to {
-    left: 330px;
+    left: 230px;
     filter: invert(1) brightness(1);
   }
 }
@@ -78,7 +78,7 @@
 
 .calling-text {
   top: 280px;
-  left: 140px;
+  left: 90px;
   position: absolute;
   font-family: pan-pizza;
   font-size: 48px;
@@ -113,7 +113,7 @@
 
 .calling-line {
   position: absolute;
-  width: 275px;
+  width: 175px;
   display: block;
   top: 432px;
   left: 92px;
