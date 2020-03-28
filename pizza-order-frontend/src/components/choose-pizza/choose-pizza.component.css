@@ -1,0 +1,7 @@
+.pizza-group {
+  width: 75%;
+  height: 90%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
