@@ -6,8 +6,8 @@
         <p class="tile-hidden tile-text-start-animation">Welcome to our pizzeria! This is Joanna, how can I help you today?</p>
       </div>
       <div *ngFor="let answer of answersMap | keyvalue">
-        <div id="{{answer.key}}" class="conversation-tile tile-hidden bottom-zero tile-answer-start-animation">
-          <p id="{{answer.key}}-paragraph" class="your-answer-option" (click)="chooseAction(answer.key)">{{answer.value}}</p>
+        <div id="{{answer.key}}-answer" class="conversation-tile tile-hidden bottom-zero tile-answer-start-animation">
+          <p id="{{answer.key}}-answer-paragraph" class="your-answer-option" (click)="chooseAction(answer.key)">{{answer.value}}</p>
         </div>
       </div>
       <div class="conversation-tile">
@@ -20,6 +20,17 @@
       <div class="conversation-tile">
         <img id="picked-img" class="tile-hidden" src="assets/images/waitress.png" alt="waitress">
         <p id="picked-text" class="tile-hidden">Great! Do you want to pick some extras to your pizza?</p>
+      </div>
+      <div *ngIf="pickAdditions">
+        <div *ngFor="let addition of additionsMap | keyvalue">
+          <div id="{{addition.key}}-addition" class="conversation-tile tile-hidden bottom-zero tile-answer-start-animation">
+            <p id="{{addition.key}}-addition-paragraph" class="your-answer-option" (click)="chooseAddition(addition.key)">{{addition.value}}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="additionsPicked" class="conversation-tile">
+        <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
+        <p class="tile-hidden tile-text-start-animation">I would choose {{data.addition?.valueOf()}} too!</p>
       </div>
     </div>
   </div>

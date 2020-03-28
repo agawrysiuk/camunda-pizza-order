@@ -22,6 +22,15 @@ export class PizzeriaAnsweredComponent implements OnInit {
     3: 'Omg, I\'m calling the police!'
   };
 
+  public additionsMap: { [index: number]: string } = {
+    1: 'Extra crust.',
+    2: 'Extra cheese',
+    3: 'Additional ham'
+  };
+
+  public pickAdditions: boolean = false;
+  public additionsPicked: boolean = false;
+
   constructor(private router: Router,
               private pickPizzaService: PickPizzaService,
               public data: DataService) {
@@ -29,7 +38,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
     pickPizzaService.changeEmitted$.subscribe(
       text => {
         if (text === 'pizza-picked') {
-          this.pickPizzaAnimation();
+          this.pizzaPickedAnimation();
         }
       });
   }
@@ -39,10 +48,10 @@ export class PizzeriaAnsweredComponent implements OnInit {
   chooseAction(key: string) {
     for (let mapKey in this.answersMap) {
       if (mapKey !== key) {
-        document.getElementById(mapKey).className = 'display-none';
+        document.getElementById(mapKey + '-answer').className = 'display-none';
       } else {
-        document.getElementById(mapKey).className = 'conversation-tile';
-        document.getElementById(mapKey + '-paragraph').className = 'your-answer';
+        document.getElementById(mapKey + '-answer').className = 'conversation-tile';
+        document.getElementById(mapKey + '-answer-paragraph').className = 'your-answer';
       }
     }
     this.createResponse(key);
@@ -62,9 +71,23 @@ export class PizzeriaAnsweredComponent implements OnInit {
       , 2000);
   }
 
-  private pickPizzaAnimation() {
+  private pizzaPickedAnimation() {
     document.getElementById('your-pick').className = 'your-answer';
     document.getElementById('picked-img').className = 'tile-hidden tile-img-start-animation';
     document.getElementById('picked-text').className = 'tile-hidden tile-text-start-animation';
+    this.pickAdditions = true;
+  }
+
+  chooseAddition(key: string) {
+    this.data.addition = this.additionsMap[key];
+    this.additionsPicked = true;
+    for (let mapKey in this.additionsMap) {
+      if (mapKey !== key) {
+        document.getElementById(mapKey + '-addition').className = 'display-none';
+      } else {
+        document.getElementById(mapKey + '-addition').className = 'conversation-tile';
+        document.getElementById(mapKey + '-addition-paragraph').className = 'your-answer';
+      }
+    }
   }
 }

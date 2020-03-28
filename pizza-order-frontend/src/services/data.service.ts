@@ -7,6 +7,7 @@ import {Pizza} from '../model/pizza';
 export class DataService {
 
   public pizzaPicked: Pizza;
+  public addition: string;
 
   constructor() { }
 }
