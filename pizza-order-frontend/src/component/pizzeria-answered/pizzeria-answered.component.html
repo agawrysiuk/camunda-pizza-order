@@ -2,8 +2,13 @@
   <div class="calling-tab">
     <div class="conversation-group">
       <div class="conversation-tile">
-        <img class="tile-hidden conversation-tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
-        <p class="tile-hidden conversation-tile-text-start-animation">Welcome to our pizzeria! This is Joanna, how can I help you today?</p>
+        <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
+        <p class="tile-hidden tile-text-start-animation">Welcome to our pizzeria! This is Joanna, how can I help you today?</p>
+      </div>
+      <div *ngFor="let answer of answersMap | keyvalue">
+        <div id="{{answer.key}}" class="conversation-tile tile-hidden bottom-zero tile-answer-start-animation">
+          <p id="{{answer.key}}-paragraph" class="your-answer-option" (click)="chooseAction(answer.key)">{{answer.value}}</p>
+        </div>
       </div>
     </div>
   </div>

@@ -14,8 +14,9 @@
 }
 
 .conversation-tile {
+  cursor: default;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: inline-flex;
   flex-direction: row;
 }
@@ -23,8 +24,8 @@
 .conversation-tile > img {
   width: 75px;
   height: 75px;
-  filter: drop-shadow(1px 1px 0 #f17012)
-  drop-shadow(-1px -1px 0 #f17012);
+  filter: drop-shadow(1px 1px 0 #ff8814)
+  drop-shadow(-1px -1px 0 #ff8814);
 }
 
 .tile-hidden {
@@ -33,11 +34,11 @@
   height: 0;
 }
 
-.conversation-tile-img-start-animation {
+.tile-img-start-animation {
   animation-name: imgStartTileAnimation;
   animation-duration: 500ms;
   animation-iteration-count: 1;
-  animation-timing-function: ease;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-delay: 500ms;
 }
@@ -70,24 +71,33 @@
   letter-spacing: 1px;
   padding: 16px;
   display: block;
-  border: 1px solid #f17012;
+  border: 1px solid #ff8814;
   background-color: transparent;
   color: white;
   border-radius: 8px;
 }
 
-.conversation-tile-text-start-animation {
+.tile-text-start-animation {
   animation-name: textStartTileAnimation;
   animation-duration: 300ms;
   animation-iteration-count: 1;
-  animation-timing-function: ease;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-delay: 700ms;
 }
 
+.tile-answer-start-animation {
+  animation-name: textStartTileAnimation;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 1500ms;
+}
+
 @keyframes textStartTileAnimation {
   0% {
-    opacity: 1;
+    opacity: 0;
     width: 0;
     height: 0;
   }
@@ -96,9 +106,38 @@
     width: 100%;
     height: auto;
   }
-  100% {
-    opacity: 1;
-    width: 100%;
-    height: auto;
+}
+
+.your-answer-option {
+  cursor: pointer;
+  margin-left: 15% !important;
+  width: 60%;
+  background: linear-gradient(to bottom, #f17012 5%, #dc8012 100%);
+}
+
+.your-answer-option:hover {
+  background: #f17012 !important;
+}
+
+.your-answer {
+  background: #f17012 !important;
+  width: 60%;
+  animation-name: answeredAnimation;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes answeredAnimation {
+  0% {
+    margin-left: 15%;
   }
+  100% {
+    margin-left: 40%;
+  }
+}
+
+.bottom-zero {
+  margin-bottom: 0 !important;
 }
