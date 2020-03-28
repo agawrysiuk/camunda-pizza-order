@@ -1,6 +1,6 @@
 .calling-tab {
   width: 450px;
-  height: 800px;
+  height: auto !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,9 @@
   height: 90%;
   display: inline-flex;
   flex-direction: column;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .conversation-tile {

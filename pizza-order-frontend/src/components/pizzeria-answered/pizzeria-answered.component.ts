@@ -30,6 +30,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   public pickAdditions: boolean = false;
   public additionsPicked: boolean = false;
+  public delivery: boolean = false;
 
   constructor(private router: Router,
               private pickPizzaService: PickPizzaService,
@@ -89,5 +90,9 @@ export class PizzeriaAnsweredComponent implements OnInit {
         document.getElementById(mapKey + '-addition-paragraph').className = 'your-answer';
       }
     }
+    setTimeout(() => {
+        this.delivery = true;
+      }
+      , 1000);
   }
 }

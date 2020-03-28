@@ -30,7 +30,11 @@
       </div>
       <div *ngIf="additionsPicked" class="conversation-tile">
         <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
-        <p class="tile-hidden tile-text-start-animation">I would choose {{data.addition?.valueOf()}} too!</p>
+        <p class="tile-hidden tile-text-start-animation">I would choose {{data.addition?.toLowerCase()}} too!</p>
+      </div>
+      <div *ngIf="delivery" class="conversation-tile">
+        <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
+        <p class="tile-hidden tile-text-start-animation">What address we should deliver to?</p>
       </div>
     </div>
   </div>
