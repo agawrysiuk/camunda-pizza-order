@@ -13,8 +13,16 @@ export class AppComponent {
   constructor(private pickPizzaService: PickPizzaService) {
     pickPizzaService.changeEmitted$.subscribe(
       text => {
-        this.showDialog = true;
+        this.makeSomethingHappend(text);
       });
   }
 
+  private makeSomethingHappend(text: any) {
+    if (text === 'pick-pizza') {
+      this.showDialog = true;
+    }
+    if (text === 'pizza-picked') {
+      this.showDialog = false;
+    }
+  }
 }
