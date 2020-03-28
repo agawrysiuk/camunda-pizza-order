@@ -6,6 +6,23 @@
   justify-content: center;
 }
 
+.calling-tab-end-animation {
+  animation-name: callingTabEndAnimation;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes callingTabEndAnimation {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 2000px;
+  }
+}
+
 .conversation-group {
   width: 85%;
   height: 90%;

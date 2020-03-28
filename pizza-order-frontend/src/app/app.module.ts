@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { PizzeriaAnsweredComponent } from '../components/pizzeria-answered/pizzeria-answered.component';
 import { PizzaTileComponent } from '../components/pizza-tile/pizza-tile.component';
 import { ChoosePizzaComponent } from '../components/choose-pizza/choose-pizza.component';
+import { WriteAddressComponent } from '../components/write-address/write-address.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChoosePizzaComponent } from '../components/choose-pizza/choose-pizza.co
     StartProcessComponent,
     PizzeriaAnsweredComponent,
     PizzaTileComponent,
-    ChoosePizzaComponent
+    ChoosePizzaComponent,
+    WriteAddressComponent
   ],
   imports: [
     BrowserModule,

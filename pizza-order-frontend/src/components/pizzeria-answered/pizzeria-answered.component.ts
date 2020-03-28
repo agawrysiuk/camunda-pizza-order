@@ -92,6 +92,14 @@ export class PizzeriaAnsweredComponent implements OnInit {
     }
     setTimeout(() => {
         this.delivery = true;
+        setTimeout(() => {
+            document.getElementById('calling-tab').className += ' calling-tab-end-animation';
+            setTimeout(() => {
+                this.router.navigate(['write-address']);
+              }
+              , 500);
+          }
+          , 2000);
       }
       , 1000);
   }
