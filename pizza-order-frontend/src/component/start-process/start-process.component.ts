@@ -8,15 +8,21 @@ import {Router} from "@angular/router";
 })
 export class StartProcessComponent implements OnInit {
 
+  private processStarted: boolean = false;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  startProcess() {
-    setTimeout(() => {
-        this.router.navigate(['phone-calling']);
-      }
-      , 1000);
+  startProcess(startButton: HTMLButtonElement) {
+    if(!this.processStarted) {
+      this.processStarted = true;
+      startButton.className += ' orange-button-animation';
+      setTimeout(() => {
+          this.router.navigate(['phone-calling']);
+        }
+        , 1000);
+    }
   }
 }
