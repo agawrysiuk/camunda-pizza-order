@@ -1,5 +1,69 @@
 .tile-background {
-  background:url(
-  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAL0lEQVQoU2P8WCD0n4EIwMjAwPD/Y4EQQaWMRJuITSH/hHcM6LZQZiI2Bw8FzwAAEcAef3JLGOkAAAAASUVORK5CYII=
-  ) repeat;
+  width: 300px;
+  height: 450px;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #191816;
+  border-radius: 24px;
+  border: 2px solid #f17012;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.pizza-name {
+  width: 100%;
+  text-align: center;
+  font-family: pan-pizza;
+  letter-spacing: 4px;
+  color: white;
+  text-decoration: underline;
+  font-size: 48px;
+  font-weight: bolder;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.pizza-photo {
+  text-align: center;
+  width: 295px;
+  height: auto;
+  border: 1px solid #f17012;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.pizza-price {
+  font-family: "Roboto Light";
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.pizza-components{
+  font-family: "Roboto Light";
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  flex-grow: 1;
+}
+
+.pizza-button {
+  width: 100%;
+  font-family: "Roboto Light";
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 16px;
+  display: block;
+  border: 1px solid #ff8814;
+  background-color: transparent;
+  color: white;
+  border-radius: 8px;
+}
+
+.pizza-button:hover {
+  cursor: pointer;
+  background-color: #ff8814;
+  color: #191816;
 }

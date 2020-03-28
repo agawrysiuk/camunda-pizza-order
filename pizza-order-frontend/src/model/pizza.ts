@@ -1,6 +1,6 @@
 export class Pizza {
   name: string;
-  image: string;
+  photo: string;
   components: string;
   price: string;
 }

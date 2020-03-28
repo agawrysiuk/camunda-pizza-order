@@ -3,5 +3,8 @@
   height: 90%;
   display: inline-flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  z-index: 15;
+  margin-top: 5%;
+  margin-left: 12.5%;
 }
