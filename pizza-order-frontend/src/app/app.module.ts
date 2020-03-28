@@ -6,13 +6,17 @@ import { PhoneCallingComponent } from '../components/phone-calling/phone-calling
 import { StartProcessComponent } from '../components/start-process/start-process.component';
 import {AppRoutingModule} from './app-routing.module';
 import { PizzeriaAnsweredComponent } from '../components/pizzeria-answered/pizzeria-answered.component';
+import { PizzaTileComponent } from '../components/pizza-tile/pizza-tile.component';
+import { ChoosePizzaComponent } from '../components/choose-pizza/choose-pizza.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhoneCallingComponent,
     StartProcessComponent,
-    PizzeriaAnsweredComponent
+    PizzeriaAnsweredComponent,
+    PizzaTileComponent,
+    ChoosePizzaComponent
   ],
   imports: [
     BrowserModule,

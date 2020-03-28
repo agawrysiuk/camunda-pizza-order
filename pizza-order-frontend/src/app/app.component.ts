@@ -8,10 +8,12 @@ import {PickPizzaService} from '../services/pick-pizza.service';
 })
 export class AppComponent {
 
+  showDialog: boolean = false;
+
   constructor(private pickPizzaService: PickPizzaService) {
     pickPizzaService.changeEmitted$.subscribe(
       text => {
-        document.getElementById('greyScreen').className = 'grey-screen';
+        this.showDialog = true;
       });
   }
 
