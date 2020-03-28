@@ -9,3 +9,7 @@ body {
   background: #191816;
   overflow-x: hidden;
 }
+
+.display-none {
+  display: none;
+}

@@ -4,6 +4,17 @@
   flex-direction: row;
 }
 
+.grey-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 0.7;
+  z-index: 10;
+}
+
 .main-left-column {
   display: inline-flex;
   flex-direction: column;

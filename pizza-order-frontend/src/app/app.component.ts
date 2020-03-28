@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(private pickPizzaService: PickPizzaService) {
     pickPizzaService.changeEmitted$.subscribe(
       text => {
-        alert(text);
+        document.getElementById('greyScreen').className = 'grey-screen';
       });
   }
 
