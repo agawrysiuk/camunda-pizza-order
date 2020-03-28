@@ -1,9 +1,9 @@
 .calling-tab {
   width: 450px;
+  min-height: 850px;
   height: auto !important;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .conversation-group {
