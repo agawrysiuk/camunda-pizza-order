@@ -119,6 +119,10 @@
   background: #f17012 !important;
 }
 
+.display-none {
+  display: none;
+}
+
 .your-answer {
   background: #f17012 !important;
   width: 60%;
