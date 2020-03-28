@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {PickPizzaService} from "../../services/pick-pizza.service";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -16,13 +17,22 @@ export class PizzeriaAnsweredComponent implements OnInit {
   };
 
   public reactionMap: { [index: number]: string } = {
-    1: 'Superb choice! Please look at the various selection that will appear on your screen in a second.',
+    1: 'Superb choice! Please look at the delicious pizzas we offer.',
     2: 'No problem. Have a nice day!',
     3: 'Omg, I\'m calling the police!'
   };
 
   constructor(private router: Router,
-              private pickPizzaService: PickPizzaService) {}
+              private pickPizzaService: PickPizzaService,
+              public data: DataService) {
+
+    pickPizzaService.changeEmitted$.subscribe(
+      text => {
+        if (text === 'pizza-picked') {
+          this.pickPizzaAnimation();
+        }
+      });
+  }
 
   ngOnInit() {}
 
@@ -52,4 +62,9 @@ export class PizzeriaAnsweredComponent implements OnInit {
       , 2000);
   }
 
+  private pickPizzaAnimation() {
+    document.getElementById('your-pick').className = 'your-answer';
+    document.getElementById('picked-img').className = 'tile-hidden tile-img-start-animation';
+    document.getElementById('picked-text').className = 'tile-hidden tile-text-start-animation';
+  }
 }
