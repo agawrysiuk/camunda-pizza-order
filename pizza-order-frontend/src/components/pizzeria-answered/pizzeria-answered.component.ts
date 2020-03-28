@@ -46,7 +46,10 @@ export class PizzeriaAnsweredComponent implements OnInit {
   }
 
   private showPopupWithPizzas() {
-    this.pickPizzaService.emitChange('pick-pizza');
+    setTimeout(() => {
+        this.pickPizzaService.emitChange('pick-pizza');
+      }
+      , 2000);
   }
 
 }
