@@ -1,6 +1,7 @@
 .calling-tab {
   display: block;
   height: 600px;
+  width: 350px;
   border-radius: 16px;
   box-shadow: 0 0 1px 2px #f17012;
   background: url(
@@ -26,6 +27,26 @@
   }
   to {
     width: 350px;
+  }
+}
+
+.calling-tab-end-animation {
+  animation-name: callingTabEndAnimation;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 4500ms;
+}
+
+@keyframes callingTabEndAnimation {
+  from {
+    width: 350px;
+    height: 600px;
+  }
+  to {
+    width: 450px;
+    height: 800px;
   }
 }
 

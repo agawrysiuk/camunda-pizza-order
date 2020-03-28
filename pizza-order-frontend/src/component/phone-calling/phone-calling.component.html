@@ -1,6 +1,6 @@
 <div class="center-group">
-  <div class="calling-tab calling-tab-start-animation">
-    <div class="calling-animation" tabindex="1" (click)="moveForward(callingCircle,callingImage,callingText,callingLine)">
+  <div #callingTab class="calling-tab calling-tab-start-animation">
+    <div class="calling-animation" tabindex="1" (click)="moveForward(callingCircle,callingImage,callingText,callingLine,callingTab)">
       <div #callingText class="calling-text">
         <p>Calling pizzeria</p>
       </div>
