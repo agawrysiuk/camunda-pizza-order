@@ -14,11 +14,12 @@ export class PhoneCallingComponent implements OnInit {
   ngOnInit() {
   }
 
-  moveForward(callingCircle: HTMLDivElement, callingImage: HTMLImageElement, callingText: HTMLDivElement) {
-    if(!this.clicked) {
+  moveForward(callingCircle: HTMLDivElement, callingImage: HTMLImageElement, callingText: HTMLDivElement, callingLine: HTMLHRElement) {
+    if (!this.clicked) {
       callingCircle.className = 'calling-circle callingCircleAfterClick';
       callingImage.className = 'calling-image callingImageAfterClick';
       callingText.className = 'calling-text callingTextAfterClick';
+      callingLine.className = ' calling-line calling-end-delayed-animation';
       this.clicked = true;
     }
   }

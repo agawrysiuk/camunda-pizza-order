@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PhoneCallingComponent } from '../component/phone-calling/phone-calling.component';
-import { CallingAnimationComponent } from '../component/calling-animation/calling-animation.component';
 import { StartProcessComponent } from '../component/start-process/start-process.component';
 import {AppRoutingModule} from './app-routing.module';
 
@@ -11,7 +10,6 @@ import {AppRoutingModule} from './app-routing.module';
   declarations: [
     AppComponent,
     PhoneCallingComponent,
-    CallingAnimationComponent,
     StartProcessComponent
   ],
   imports: [
