@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {PickPizzaService} from "../../services/pick-pizza.service";
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -20,11 +21,10 @@ export class PizzeriaAnsweredComponent implements OnInit {
     3: 'Omg, I\'m calling the police!'
   };
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router,
+              private pickPizzaService: PickPizzaService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   chooseAction(key: string) {
     for (let mapKey in this.answersMap) {
@@ -36,6 +36,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
       }
     }
     this.createResponse(key);
+    this.showPopupWithPizzas();
   }
 
   private createResponse(key: string) {
@@ -43,4 +44,9 @@ export class PizzeriaAnsweredComponent implements OnInit {
     document.getElementById('reaction-text').innerText = this.reactionMap[key];
     document.getElementById('reaction-text').className = 'tile-hidden tile-text-start-animation';
   }
+
+  private showPopupWithPizzas() {
+    this.pickPizzaService.emitChange('pick-pizza');
+  }
+
 }

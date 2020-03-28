@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {StartProcessComponent} from '../component/start-process/start-process.component';
-import {PhoneCallingComponent} from '../component/phone-calling/phone-calling.component';
-import {PizzeriaAnsweredComponent} from '../component/pizzeria-answered/pizzeria-answered.component';
+import {StartProcessComponent} from '../components/start-process/start-process.component';
+import {PhoneCallingComponent} from '../components/phone-calling/phone-calling.component';
+import {PizzeriaAnsweredComponent} from '../components/pizzeria-answered/pizzeria-answered.component';
 
 const routes: Routes = [
   { path: '', component: StartProcessComponent },
