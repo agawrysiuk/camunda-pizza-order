@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-phone-calling',
@@ -9,7 +10,7 @@ export class PhoneCallingComponent implements OnInit {
 
   private clicked: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,10 @@ export class PhoneCallingComponent implements OnInit {
       callingLine.className = 'calling-line calling-end-delayed-animation';
       callingTab.className = 'calling-tab calling-tab-end-animation';
       this.clicked = true;
+      setTimeout(() => {
+          this.router.navigate(['pizzeria-answered']);
+        }
+        , 5000);
     }
   }
 }
