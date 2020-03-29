@@ -1,17 +1,19 @@
 .calling-tab {
   display: flex;
   width: 450px;
+  min-height: 600px;
+  height: auto;
 }
 
 .slide-in {
-  animation-name: callingTabEndAnimation;
+  animation-name: slideInAnimation;
   animation-duration: 500ms;
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
-@keyframes callingTabEndAnimation {
+@keyframes slideInAnimation {
   0% {
     transform: translateX(2000px);
   }
@@ -23,15 +25,38 @@
   }
 }
 
+.slide-out {
+  animation-name: slideOutAnimation;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideOutAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(2000px);
+  }
+}
+
 .form-group {
   width: 100%;
+  height: auto;
   display: inline-flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 50px;
 }
 
 .form-control {
   width: 100%;
+  border: none;
+  border-bottom: 2px solid #EB9532;
+  border-radius: 4px 4px 0 0;
+  color: white;
+  background-color: transparent;
   box-sizing: border-box;
   font-size: 16px;
   padding-left: 10px;
@@ -39,6 +64,15 @@
   padding-bottom: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.form-control:hover {
+  background-color: rgb(99, 69, 49);
+}
+
+.form-control-after {
+  background-color: transparent;
+  border-bottom: 2px solid #30bf25;
 }
 
 .control-alert {
@@ -50,4 +84,23 @@
 .submit-button {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.orange-empty-button {
+  margin-top: 40px;
+  font-size: 20px;
+  padding: 16px 24px;
+}
+
+.dummy-button {
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #048804;
+}
+
+.dummy-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
 }

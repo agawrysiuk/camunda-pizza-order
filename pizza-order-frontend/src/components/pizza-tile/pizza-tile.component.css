@@ -5,7 +5,7 @@
   flex-direction: column;
   background-color: #191816;
   border-radius: 24px;
-  border: 2px solid #f17012;
+  border: 2px solid #EB9532;
   margin-left: 20px;
   margin-right: 20px;
   padding: 20px;
@@ -44,7 +44,7 @@
   text-align: center;
   width: 295px;
   height: auto;
-  border: 1px solid #f17012;
+  border: 1px solid #EB9532;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -63,23 +63,4 @@
   margin-bottom: 10px;
   color: white;
   flex-grow: 1;
-}
-
-.pizza-button {
-  width: 100%;
-  font-family: "Roboto Light";
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 16px;
-  display: block;
-  border: 1px solid #ff8814;
-  background-color: transparent;
-  color: white;
-  border-radius: 8px;
-}
-
-.pizza-button:hover {
-  cursor: pointer;
-  background-color: #ff8814;
-  color: #191816;
 }

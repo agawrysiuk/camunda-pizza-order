@@ -132,15 +132,15 @@
   cursor: pointer;
   margin-left: 15% !important;
   width: 60%;
-  background: linear-gradient(to bottom, #f17012 5%, #dc8012 100%);
+  background: linear-gradient(to bottom, #EB9532 5%, #dc8012 100%);
 }
 
 .your-answer-option:hover {
-  background: #f17012 !important;
+  background: #EB9532 !important;
 }
 
 .your-answer {
-  background: #f17012 !important;
+  background: #EB9532 !important;
   width: 60%;
   animation-name: answeredAnimation;
   animation-duration: 300ms;

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import {DataService} from '../../services/data.service';
 import {DeliveryAddress} from '../../model/delivery-address';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-write-address',
@@ -10,21 +11,32 @@ import {DeliveryAddress} from '../../model/delivery-address';
 })
 export class WriteAddressComponent implements OnInit {
 
-  public formGroup: FormGroup;
   public address: DeliveryAddress = new DeliveryAddress();
 
-  constructor(public data: DataService) {
+  constructor(private data: DataService,
+              private router: Router) {
   }
 
   ngOnInit() {
   }
 
   addAddress() {
-    alert('Saved');
     this.data.address = this.address;
+    document.getElementById('address-tab').className = 'calling-tab slide-out';
+    setTimeout(() => {
+        this.router.navigate(['order-summary']);
+      }
+      , 500);
   }
 
-  mockAddress() {
-
+  mockAddress(addressForm: NgForm) {
+    this.address.name = 'Krzysztof Krawczyk';
+    this.address.phone = '000-000-000';
+    this.address.street = 'ul. Jasna';
+    this.address.building = '52';
+    this.address.suite = '9';
+    this.address.city = 'Warszawa';
+    this.address.zipCode = '01-469';
+    addressForm.form.markAllAsTouched();
   }
 }

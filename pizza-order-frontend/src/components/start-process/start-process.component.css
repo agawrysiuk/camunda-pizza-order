@@ -1,17 +1,3 @@
-.orange-button {
-  display: block;
-  font-size: 24px;
-  padding: 12px 24px;
-  background-color: #f17012;
-  color: #191816;
-  border: none;
-  border-radius: 8px;
-}
-
-.orange-button:hover {
-  background-color: #f14a1a;
-}
-
 .orange-button-animation {
   content: none;
   animation-name: buttonClickAnimation;

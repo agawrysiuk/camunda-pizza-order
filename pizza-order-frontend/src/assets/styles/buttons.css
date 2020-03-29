@@ -1,0 +1,47 @@
+.orange-button {
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  padding: 16px 24px;
+  background-color: #EB9532;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.orange-button:hover {
+  background-color: #f14a1a;
+}
+
+.orange-button:disabled {
+  cursor: default;
+  color: #191816;
+  background-color: #ffd8c0;
+}
+
+.orange-empty-button {
+  width: 100%;
+  font-family: "Roboto Light";
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 16px;
+  display: block;
+  border: 1px solid #ff8814;
+  background-color: transparent;
+  color: white;
+  border-radius: 8px;
+}
+
+.orange-empty-button:hover:enabled {
+  cursor: pointer;
+  background-color: #ff8814;
+  color: #191816;
+}
+
+.orange-empty-button:disabled {
+  cursor: default;
+  border: 1px solid #cccccc;
+  color: #cccccc;
+}

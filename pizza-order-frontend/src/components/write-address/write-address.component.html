@@ -1,10 +1,11 @@
 <div class="center-group">
-  <div class="calling-tab slide-in">
+  <div id="address-tab" class="calling-tab slide-in">
     <form #addressForm="ngForm" class="form-group">
         <input type="text" class="form-control" id="name"
                required
                [(ngModel)]="address.name" name="name"
-               #name="ngModel" placeholder="Name">
+               #name="ngModel" placeholder="Name"
+                [ngClass]="{'form-control-after' : name.valid && name.touched}">
         <div [hidden]="name.valid || !name.touched"
              class="control-alert">
           Name is required
@@ -13,7 +14,8 @@
         <input type="text" class="form-control" id="phone"
                required
                [(ngModel)]="address.phone" name="phone"
-               #phone="ngModel" placeholder="Phone">
+               #phone="ngModel" placeholder="Phone"
+               [ngClass]="{'form-control-after' : phone.valid && phone.touched}">
         <div [hidden]="phone.valid || !phone.touched"
              class="control-alert">
           Phone is required
@@ -22,7 +24,8 @@
         <input type="text" class="form-control" id="street"
                required
                [(ngModel)]="address.street" name="street"
-               #street="ngModel" placeholder="Street">
+               #street="ngModel" placeholder="Street"
+               [ngClass]="{'form-control-after' : street.valid && street.touched}">
         <div [hidden]="street.valid || !street.touched"
              class="control-alert">
           Street is required
@@ -31,7 +34,8 @@
         <input type="text" class="form-control" id="building"
                required
                [(ngModel)]="address.building" name="building"
-               #building="ngModel" placeholder="Building">
+               #building="ngModel" placeholder="Building"
+               [ngClass]="{'form-control-after' : building.valid && building.touched}">
         <div [hidden]="building.valid || !building.touched"
              class="control-alert">
           Building is required
@@ -39,12 +43,14 @@
 
         <input type="text" class="form-control" id="suite"
                [(ngModel)]="address.suite" name="suite"
-               #suite="ngModel" placeholder="Suite">
+               #suite="ngModel" placeholder="Suite"
+               [ngClass]="{'form-control-after' : suite.valid && suite.touched}">
 
         <input type="text" class="form-control" id="city"
                required
                [(ngModel)]="address.city" name="city"
-               #city="ngModel" placeholder="City">
+               #city="ngModel" placeholder="City"
+               [ngClass]="{'form-control-after' : city.valid && city.touched}">
         <div [hidden]="city.valid || !city.touched"
              class="control-alert">
           City is required
@@ -53,15 +59,16 @@
         <input type="text" class="form-control" id="zipCode"
                required
                [(ngModel)]="address.zipCode" name="zipCode"
-               #zipCode="ngModel" placeholder="Zip Code">
+               #zipCode="ngModel" placeholder="Zip Code"
+               [ngClass]="{'form-control-after' : zipCode.valid && zipCode.touched}">
         <div [hidden]="zipCode.valid || !zipCode.touched"
              class="control-alert">
           Zip code is required
         </div>
 
-        <button class="submit-button" (click)="addAddress()" [disabled]="!addressForm.form.valid">Save</button>
+        <button class="orange-empty-button" (click)="addAddress()" [disabled]="!addressForm.form.valid">Save</button>
 
-        <button class="fill-button" (click)="mockAddress()">Fill it with dummy address</button>
+        <button class="orange-empty-button dummy-button" (click)="mockAddress(addressForm)">Fill it with dummy address</button>
     </form>
   </div>
 </div>
