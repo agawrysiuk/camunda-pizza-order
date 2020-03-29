@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Pizza} from '../../model/pizza';
-import {PickPizzaService} from '../../services/pick-pizza.service';
+import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class PizzaTileComponent implements OnInit {
   @Input()
   public pizza: Pizza;
 
-  constructor(private pizzaService: PickPizzaService,
+  constructor(private popupService: PopupService,
               private data: DataService) {
 
   }
@@ -23,6 +23,6 @@ export class PizzaTileComponent implements OnInit {
 
   choosePizza() {
     this.data.pizzaPicked = this.pizza;
-    this.pizzaService.emitChange('pizza-picked');
+    this.popupService.emitChange('pizza-picked');
   }
 }

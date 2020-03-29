@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {PickPizzaService} from "../../services/pick-pizza.service";
+import {PopupService} from "../../services/popup.service";
 import {DataService} from "../../services/data.service";
 
 @Component({
@@ -33,10 +33,10 @@ export class PizzeriaAnsweredComponent implements OnInit {
   public delivery: boolean = false;
 
   constructor(private router: Router,
-              private pickPizzaService: PickPizzaService,
+              private popupService: PopupService,
               public data: DataService) {
 
-    pickPizzaService.changeEmitted$.subscribe(
+    popupService.changeEmitted$.subscribe(
       text => {
         if (text === 'pizza-picked') {
           this.pizzaPickedAnimation();
@@ -67,7 +67,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   private showPopupWithPizzas() {
     setTimeout(() => {
-        this.pickPizzaService.emitChange('pick-pizza');
+        this.popupService.emitChange('pick-pizza');
       }
       , 2000);
   }

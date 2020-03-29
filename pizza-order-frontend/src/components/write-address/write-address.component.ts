@@ -24,7 +24,7 @@ export class WriteAddressComponent implements OnInit {
     this.data.address = this.address;
     document.getElementById('address-tab').className = 'calling-tab slide-out';
     setTimeout(() => {
-        this.router.navigate(['order-summary']);
+        this.router.navigate(['thank-you']);
       }
       , 500);
   }

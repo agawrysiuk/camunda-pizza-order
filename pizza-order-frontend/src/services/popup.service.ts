@@ -4,7 +4,7 @@ import {Subject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PickPizzaService {
+export class PopupService {
   private emitChangeSource = new Subject<any>();
 
   changeEmitted$ = this.emitChangeSource.asObservable();

@@ -10,7 +10,8 @@ import { PizzaTileComponent } from '../components/pizza-tile/pizza-tile.componen
 import { ChoosePizzaComponent } from '../components/choose-pizza/choose-pizza.component';
 import { WriteAddressComponent } from '../components/write-address/write-address.component';
 import { OrderSummaryComponent } from '../components/order-summary/order-summary.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ThankYouComponent } from '../components/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     PizzaTileComponent,
     ChoosePizzaComponent,
     WriteAddressComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

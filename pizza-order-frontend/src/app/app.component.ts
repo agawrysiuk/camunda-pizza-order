@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {PickPizzaService} from '../services/pick-pizza.service';
+import {PopupService} from '../services/popup.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,8 @@ export class AppComponent {
 
   showDialog: boolean = false;
 
-  constructor(private pickPizzaService: PickPizzaService) {
-    pickPizzaService.changeEmitted$.subscribe(
+  constructor(private popupService: PopupService) {
+    popupService.changeEmitted$.subscribe(
       text => {
         this.makeSomethingHappend(text);
       });

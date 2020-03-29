@@ -11,6 +11,15 @@ body {
   overflow-x: hidden;
 }
 
+.title-text {
+  color: #ffffff;
+  text-align: center;
+  font-family: pan-pizza;
+  letter-spacing: 4px;
+  font-weight: 900;
+  font-size: 80px;
+}
+
 .display-none {
   display: none;
 }
