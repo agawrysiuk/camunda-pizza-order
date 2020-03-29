@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {DataService} from '../../services/data.service';
+import {DeliveryAddress} from '../../model/delivery-address';
 
 @Component({
   selector: 'app-write-address',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WriteAddressComponent implements OnInit {
 
-  constructor() { }
+  public formGroup: FormGroup;
+  public address: DeliveryAddress = new DeliveryAddress();
+
+  constructor(public data: DataService) {
+  }
 
   ngOnInit() {
   }
 
+  addAddress() {
+    alert('Saved');
+    this.data.address = this.address;
+  }
+
+  mockAddress() {
+
+  }
 }

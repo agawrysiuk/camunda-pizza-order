@@ -15,7 +15,39 @@
   0% {
     transform: translateX(2000px);
   }
+  80% {
+    transform: translateX(-20px);
+  }
   100% {
     transform: translateX(0);
   }
+}
+
+.form-group {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.control-alert {
+  color: #f14a1a;
+  margin-top: -5px;
+  padding-left: 10px;
+}
+
+.submit-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
