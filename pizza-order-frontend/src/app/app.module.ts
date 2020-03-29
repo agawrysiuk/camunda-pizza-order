@@ -9,6 +9,7 @@ import { PizzeriaAnsweredComponent } from '../components/pizzeria-answered/pizze
 import { PizzaTileComponent } from '../components/pizza-tile/pizza-tile.component';
 import { ChoosePizzaComponent } from '../components/choose-pizza/choose-pizza.component';
 import { WriteAddressComponent } from '../components/write-address/write-address.component';
+import { OrderSummaryComponent } from '../components/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WriteAddressComponent } from '../components/write-address/write-address
     PizzeriaAnsweredComponent,
     PizzaTileComponent,
     ChoosePizzaComponent,
-    WriteAddressComponent
+    WriteAddressComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,

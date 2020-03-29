@@ -1,0 +1,21 @@
+.calling-tab {
+  display: flex;
+  width: 450px;
+}
+
+.slide-in {
+  animation-name: callingTabEndAnimation;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes callingTabEndAnimation {
+  0% {
+    transform: translateX(2000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
