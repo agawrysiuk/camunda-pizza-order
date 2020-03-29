@@ -1,0 +1,85 @@
+.center-order {
+  width: 75%;
+  height: 90%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  z-index: 15;
+  margin-top: 5%;
+  margin-left: 12.5%;
+}
+
+.order-tab {
+  /*border: 1px solid #ff8814;*/
+  width: 350px;
+  height: 600px;
+  background: url("/assets/images/order-background.png") no-repeat;
+  background-size: 350px;
+}
+
+.order-details {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.order-ribbon {
+  justify-self: center;
+  margin-left: 10%;
+  width: 80%;
+  height: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  z-index: 20;
+}
+
+.order-title {
+  position: absolute;
+  top: 18px;
+  left: 90px;
+  font-family: federick-the-great;
+  font-size: 20px;
+  color: white;
+  z-index: 30;
+}
+
+.order-data {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 40px 20px;
+}
+
+.data-row {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.data-text {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #ff8814;
+  min-width: 50px;
+  width: 25%;
+  text-align: left;
+}
+
+.order-line {
+  display: block;
+  height: 1px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #ff8814;
+}
+
+.orange-button,
+.orange-empty-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: auto;
+}

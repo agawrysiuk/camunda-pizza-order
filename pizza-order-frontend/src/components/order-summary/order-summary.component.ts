@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PopupService} from '../../services/popup.service';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -7,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderSummaryComponent implements OnInit {
 
-  constructor() {
+  constructor(private popupService: PopupService,
+              private data: DataService) {
   }
 
   ngOnInit() {
+  }
+
+  orderApproved() {
+    this.popupService.emitChange('order-approved');
+  }
+
+  orderDeclined() {
+    this.popupService.emitChange('order-declined');
   }
 
 }

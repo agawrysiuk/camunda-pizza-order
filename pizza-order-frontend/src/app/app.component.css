@@ -25,10 +25,6 @@
   width: 100%;
 }
 
-.text-orange {
-  color: #EB9532;
-}
-
 .main-image {
   position: fixed;
   bottom: -10px;
@@ -45,7 +41,7 @@
   height: 100vh;
 }
 
-.display-pizzas {
+.display-dialog {
   position: fixed;
   top: 0;
   right: 0;

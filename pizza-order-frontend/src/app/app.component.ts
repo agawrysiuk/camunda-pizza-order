@@ -8,21 +8,28 @@ import {PopupService} from '../services/popup.service';
 })
 export class AppComponent {
 
-  showDialog: boolean = false;
+  showPizzaDialog: boolean = false;
+  showOrderDialog: boolean = false;
 
   constructor(private popupService: PopupService) {
     popupService.changeEmitted$.subscribe(
       text => {
-        this.makeSomethingHappend(text);
+        this.parseEmitter(text);
       });
   }
 
-  private makeSomethingHappend(text: any) {
+  private parseEmitter(text: any) {
     if (text === 'pick-pizza') {
-      this.showDialog = true;
+      this.showPizzaDialog = true;
     }
     if (text === 'pizza-picked') {
-      this.showDialog = false;
+      this.showPizzaDialog = false;
+    }
+    if (text === 'order-summary') {
+      this.showOrderDialog = true;
+    }
+    if (text === 'order-approved' || text === 'order-declined') {
+      this.showOrderDialog = false;
     }
   }
 }

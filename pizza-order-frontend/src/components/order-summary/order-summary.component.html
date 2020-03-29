@@ -1,0 +1,34 @@
+<div class="center-order">
+  <div class="order-tab">
+    <div class="order-details">
+      <img class="order-ribbon" src="/assets/images/order-ribbon.png" alt="order-ribbon"/>
+      <span class="order-title">Confirm your order:</span>
+      <div class="order-data">
+        <div class="data-row">
+          <span class="data-text flex-grow">Item:</span>
+          <span class="data-text">Quantity:</span>
+          <span class="data-text">Price:</span>
+        </div>
+        <hr class="order-line"/>
+        <div class="data-row">
+          <span class="data-text flex-grow">{{data.pizzaPicked.name}}</span>
+          <span class="data-text">1</span>
+          <span class="data-text">{{data.pizzaPicked.price}} EUR</span>
+        </div>
+        <div class="data-row">
+          <span class="data-text flex-grow">{{data.addition}}</span>
+          <span class="data-text">1</span>
+          <span class="data-text">1 EUR</span>
+        </div>
+        <hr class="order-line"/>
+        <div class="data-row">
+          <span class="data-text flex-grow"></span>
+          <span class="data-text">Total:</span>
+          <span class="data-text">{{data.pizzaPicked.price + 1}} EUR</span>
+        </div>
+      </div>
+      <button class="orange-button" (click)="orderApproved()">Order now</button>
+      <button class="orange-empty-button" (click)="orderDeclined()">Cancel</button>
+    </div>
+  </div>
+</div>
