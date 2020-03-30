@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0c4hz8h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.6.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0c4hz8h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.6.0">
   <bpmn:collaboration id="Collaboration_0c8pwg4">
     <bpmn:participant id="Participant_1f8bt22" processRef="Process_1ud7bg8" />
   </bpmn:collaboration>
@@ -29,13 +29,13 @@
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1e0bsji" sourceRef="Task_02e0b4i" targetRef="Task_1c5yndx" />
     <bpmn:sequenceFlow id="SequenceFlow_129k2pj" sourceRef="Task_1c5yndx" targetRef="Task_0shaaor" />
-    <bpmn:serviceTask id="Task_1c5yndx" name="Phone answer">
+    <bpmn:serviceTask id="Task_1c5yndx" name="Phone answer" camunda:delegateExpression="${phoneAnswerDelegate}">
       <bpmn:incoming>SequenceFlow_1e0bsji</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_129k2pj</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_0bjb2t4" sourceRef="Task_0shaaor" targetRef="Task_0emvap6" />
     <bpmn:sequenceFlow id="SequenceFlow_1ghkm1s" sourceRef="Task_0emvap6" targetRef="Task_0qplbsr" />
-    <bpmn:serviceTask id="Task_0shaaor" name="Create variables">
+    <bpmn:serviceTask id="Task_0shaaor" name="Create variables" camunda:delegateExpression="${createVariablesDelegate}">
       <bpmn:incoming>SequenceFlow_129k2pj</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0bjb2t4</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -53,7 +53,7 @@
       <bpmn:incoming>SequenceFlow_0ce9cnf</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_075mhaz</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:serviceTask id="Task_19s5vay" name="Check the data">
+    <bpmn:serviceTask id="Task_19s5vay" name="Check the data" camunda:delegateExpression="${checkDataDelegate}">
       <bpmn:incoming>SequenceFlow_0iot9pz</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0ce9cnf</bpmn:outgoing>
     </bpmn:serviceTask>
