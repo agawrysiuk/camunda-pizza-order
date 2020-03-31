@@ -1,7 +1,7 @@
-package pl.agawrysiuk.delegates.controller;
+package pl.agawrysiuk.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,8 @@ public class ProcessController {
     private final ProcessStarter processStarter;
 
     @GetMapping("/start")
-    public void startProcess(@RequestParam String id) {
+    public ResponseEntity<Object> startProcess(@RequestParam String id) {
         processStarter.startProcess(id);
+        return ResponseEntity.ok().build();
     }
 }
