@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0c4hz8h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.6.0">
   <bpmn:collaboration id="Collaboration_0c8pwg4">
-    <bpmn:participant id="Participant_1f8bt22" processRef="Process_1ud7bg8" />
+    <bpmn:participant id="Participant_1f8bt22" processRef="PizzaProcess" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_1ud7bg8" isExecutable="true">
+  <bpmn:process id="PizzaProcess" isExecutable="true">
     <bpmn:laneSet id="LaneSet_01iapt2">
       <bpmn:lane id="Lane_1xzxxlc">
         <bpmn:flowNodeRef>Task_02e0b4i</bpmn:flowNodeRef>
