@@ -6,12 +6,9 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProcessManagerService {
 
-  private startUrl: 'http://localhost:8080/start?id=PizzaProcess';
-  private processName: 'PizzaProcess';
-
   constructor(private http: HttpClient) { }
 
   public startProcess() {
-    this.http.get<string>(this.startUrl).subscribe(text => console.log(text));
+    this.http.get<string>('http://localhost:8080/start?id=PizzaProcess').subscribe(text => console.log(text));
   }
 }

@@ -12,7 +12,7 @@ import { WriteAddressComponent } from '../components/write-address/write-address
 import { OrderSummaryComponent } from '../components/order-summary/order-summary.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ThankYouComponent } from '../components/thank-you/thank-you.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
