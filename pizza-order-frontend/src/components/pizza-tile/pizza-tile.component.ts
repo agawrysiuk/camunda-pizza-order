@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Pizza} from '../../model/pizza';
 import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
+import {Pizza} from '../../model/generated-dto';
 
 @Component({
   selector: 'app-pizza-tile',
@@ -22,7 +22,7 @@ export class PizzaTileComponent implements OnInit {
   }
 
   choosePizza() {
-    this.data.pizzaPicked = this.pizza;
+    this.data.variables.pizza = this.pizza;
     this.popupService.emitChange('pizza-picked');
   }
 }

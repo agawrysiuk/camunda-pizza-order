@@ -13,5 +13,5 @@ public class Pizza {
     private String name;
     private String photo;
     private String components;
-    private String price;
+    private Double price;
 }

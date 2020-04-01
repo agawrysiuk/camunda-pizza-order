@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {DataService} from './data.service';
-import {CamundaVariables} from '../model/dto';
+import {CamundaVariables} from '../model/generated-dto';
 
 @Injectable({
   providedIn: 'root'

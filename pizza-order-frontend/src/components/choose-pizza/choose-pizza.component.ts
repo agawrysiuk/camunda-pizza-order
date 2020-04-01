@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Pizza} from "../../model/pizza";
+import {Component, OnInit} from '@angular/core';
+import {Pizza} from '../../model/generated-dto';
+
 
 @Component({
   selector: 'app-choose-pizza',

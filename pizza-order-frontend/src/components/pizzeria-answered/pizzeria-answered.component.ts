@@ -23,7 +23,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
   };
 
   public additionsMap: { [index: number]: string } = {
-    1: 'Extra crust.',
+    1: 'Extra crust',
     2: 'Extra cheese',
     3: 'Additional ham'
   };
@@ -80,7 +80,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
   }
 
   chooseAddition(key: string) {
-    this.data.addition = this.additionsMap[key];
+    this.data.variables.additions = this.additionsMap[key];
     this.additionsPicked = true;
     for (let mapKey in this.additionsMap) {
       if (mapKey !== key) {

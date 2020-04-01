@@ -85,7 +85,7 @@
                         <class>pl.agawrysiuk.camunda.dto.CamundaVariables</class>
                     </classes>
                     <outputKind>module</outputKind>
-                    <outputFile>../pizza-order-frontend/src/model/dto.ts</outputFile>
+                    <outputFile>../pizza-order-frontend/src/model/generated-dto.ts</outputFile>
                 </configuration>
             </plugin>
         </plugins>

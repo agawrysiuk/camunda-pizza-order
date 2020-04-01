@@ -11,12 +11,12 @@
         </div>
         <hr class="order-line"/>
         <div class="data-row">
-          <span class="data-text flex-grow">{{data.pizzaPicked.name}}</span>
+          <span class="data-text flex-grow">{{data.variables.pizza.name}}</span>
           <span class="data-text">1</span>
-          <span class="data-text">{{data.pizzaPicked.price}} EUR</span>
+          <span class="data-text">{{data.variables.pizza.price}} EUR</span>
         </div>
         <div class="data-row">
-          <span class="data-text flex-grow">{{data.addition}}</span>
+          <span class="data-text flex-grow">{{data.variables.additions}}</span>
           <span class="data-text">1</span>
           <span class="data-text">1 EUR</span>
         </div>
@@ -24,7 +24,7 @@
         <div class="data-row">
           <span class="data-text flex-grow"></span>
           <span class="data-text">Total:</span>
-          <span class="data-text">{{data.pizzaPicked.price + 1}} EUR</span>
+          <span class="data-text">{{data.variables.pizza.price + 1}} EUR</span>
         </div>
       </div>
       <button class="orange-button" (click)="orderApproved()">Order now</button>
