@@ -6,19 +6,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.agawrysiuk.delegates.process.ProcessStarter;
+import pl.agawrysiuk.process.ProcessManager;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 public class ProcessController {
 
-    private final ProcessStarter processStarter;
+    private final ProcessManager processManager;
 
     @GetMapping("/start")
     public ResponseEntity<Object> startProcess(@RequestParam String id) {
         log.info("Got a call to start the process id {}",id);
-        processStarter.startProcess(id);
+        processManager.startProcess(id);
         return ResponseEntity.ok().build();
     }
 }
