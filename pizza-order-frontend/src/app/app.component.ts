@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {PopupService} from '../services/popup.service';
+import {EmitterMessages} from "../model/emitter-messages";
 
 @Component({
   selector: 'app-root',
@@ -19,16 +20,16 @@ export class AppComponent {
   }
 
   private parseEmitter(text: any) {
-    if (text === 'pick-pizza') {
+    if (text === EmitterMessages.PICK_PIZZA) {
       this.showPizzaDialog = true;
     }
-    if (text === 'pizza-picked') {
+    if (text === EmitterMessages.PIZZA_PICKED) {
       this.showPizzaDialog = false;
     }
-    if (text === 'order-summary') {
+    if (text === EmitterMessages.ORDER_SUMMARY) {
       this.showOrderDialog = true;
     }
-    if (text === 'order-approved' || text === 'order-declined') {
+    if (text === EmitterMessages.ORDER_APPROVED || text === EmitterMessages.ORDER_DECLINED) {
       this.showOrderDialog = false;
     }
   }

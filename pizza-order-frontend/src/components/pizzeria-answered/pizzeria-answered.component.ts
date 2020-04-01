@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {PopupService} from "../../services/popup.service";
 import {DataService} from "../../services/data.service";
+import {EmitterMessages} from "../../model/emitter-messages";
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -38,7 +39,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
     popupService.changeEmitted$.subscribe(
       text => {
-        if (text === 'pizza-picked') {
+        if (text === EmitterMessages.PIZZA_PICKED) {
           this.pizzaPickedAnimation();
         }
       });
@@ -67,7 +68,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   private showPopupWithPizzas() {
     setTimeout(() => {
-        this.popupService.emitChange('pick-pizza');
+        this.popupService.emitChange(EmitterMessages.PICK_PIZZA);
       }
       , 2000);
   }

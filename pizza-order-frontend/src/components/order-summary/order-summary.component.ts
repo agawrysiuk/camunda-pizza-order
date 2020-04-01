@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
+import {EmitterMessages} from "../../model/emitter-messages";
 
 @Component({
   selector: 'app-order-summary',
@@ -17,11 +18,11 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   orderApproved() {
-    this.popupService.emitChange('order-approved');
+    this.popupService.emitChange(EmitterMessages.ORDER_APPROVED);
   }
 
   orderDeclined() {
-    this.popupService.emitChange('order-declined');
+    this.popupService.emitChange(EmitterMessages.ORDER_DECLINED);
   }
 
 }
