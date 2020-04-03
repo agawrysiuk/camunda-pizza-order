@@ -1,4 +1,4 @@
-package pl.agawrysiuk.cors;
+package pl.agawrysiuk.config.cors;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
