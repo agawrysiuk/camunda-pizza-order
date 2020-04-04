@@ -15,7 +15,7 @@ export class SocketService {
   constructor() {}
 
   public initializeWebSocketConnection(processId: string) {
-    const webSocket = new SockJS(this.getConvertedSocketUrl(processId));
+    const webSocket = new SockJS(environment.backendUrl + environment.socketUrl);
     this.client = Stomp.over(webSocket);
     this.client.connect({}, this.onConnect);
   }

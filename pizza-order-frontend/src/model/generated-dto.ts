@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-01 21:14:28.
+// Generated using typescript-generator version 2.21.588 on 2020-04-04 16:35:47.
 
 export interface DeliveryAddress {
     name: string;
@@ -24,4 +24,11 @@ export interface CamundaVariables {
     pizza: Pizza;
     deliveryAddress: DeliveryAddress;
     additions: string;
+}
+
+export interface CamundaMessage {
+    processId: string;
+    stepId: string;
+    message: string;
+    camundaVariables: CamundaVariables;
 }

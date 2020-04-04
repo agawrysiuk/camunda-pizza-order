@@ -12,6 +12,7 @@ export class DataService {
 
   public setVariables(variables: CamundaVariables): Promise<CamundaVariables> {
     this.variables = variables;
+    console.log(this.variables);
     return new Promise<CamundaVariables>(resolve => resolve(this.variables));
   }
 }

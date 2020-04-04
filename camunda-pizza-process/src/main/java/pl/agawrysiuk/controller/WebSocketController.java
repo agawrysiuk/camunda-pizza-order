@@ -24,8 +24,9 @@ public class WebSocketController {
                 new TimerTask() {
                     @Override
                     public void run() {
-                        log.info("Sending message to front: {}", message);
-                        template.convertAndSendToUser(message.getProcessId(),"/next", message);
+                        log.info("Sending message to front: {}", message.getProcessId());
+//                        template.convertAndSendToUser(message.getProcessId(),"/next", message);
+                        template.convertAndSend("/next", message);
                     }
                 },
                 2000
