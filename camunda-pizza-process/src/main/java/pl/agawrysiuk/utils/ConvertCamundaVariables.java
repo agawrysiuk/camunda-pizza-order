@@ -7,10 +7,15 @@ import java.util.Map;
 
 public class ConvertCamundaVariables {
 
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
     private ConvertCamundaVariables() {}
 
     public static Map<String, Object> convertToMap(CamundaVariables variables) {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.convertValue(variables, Map.class);
+        return MAPPER.convertValue(variables, Map.class);
+    }
+
+    public static CamundaVariables convertToVariables(Map<String,Object> map) {
+        return MAPPER.convertValue(map, CamundaVariables.class);
     }
 }
