@@ -15,6 +15,6 @@ export class InitService {
   public init() {
     this.processManager.startProcess()
       .then(variables => this.data.setVariables(variables))
-      .then(variables => this.socket.initializeWebSocket(variables.processId));
+      .then(variables => this.socket.initializeWebSocketConnection(variables.processId));
   }
 }

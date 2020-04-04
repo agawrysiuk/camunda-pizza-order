@@ -1,15 +1,22 @@
 import {Injectable} from '@angular/core';
-import {Client} from '@stomp/stompjs';
+import {Stomp} from '@stomp/stompjs';
+import * as SockJS from 'sockjs-client';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
 
-  private client: Client;
+  private client;
+  private readonly serverUrl: string;
 
-  constructor() { }
+  constructor() {
+    this.serverUrl = 'http://localhost:8080/socket';
+  }
 
-  public initializeWebSocket(processId: string) {
+  public initializeWebSocketConnection(processId: string) {
+    const webSocket = new SockJS(this.serverUrl);
+    this.client = Stomp.over(webSocket);
+    this.client.connect();
   }
 }
