@@ -6,7 +6,7 @@
   <bpmn:process id="PizzaProcess" isExecutable="true">
     <bpmn:laneSet id="LaneSet_01iapt2">
       <bpmn:lane id="Lane_1xzxxlc">
-        <bpmn:flowNodeRef>Task_02e0b4i</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>phone-calling</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0emvap6</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0qplbsr</bpmn:flowNodeRef>
@@ -19,8 +19,8 @@
         <bpmn:flowNodeRef>Task_19s5vay</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:sequenceFlow id="SequenceFlow_00tsj6z" sourceRef="StartEvent_1" targetRef="Task_02e0b4i" />
-    <bpmn:userTask id="Task_02e0b4i" name="Phone calling">
+    <bpmn:sequenceFlow id="SequenceFlow_00tsj6z" sourceRef="StartEvent_1" targetRef="phone-calling" />
+    <bpmn:userTask id="phone-calling" name="Phone calling">
       <bpmn:extensionElements>
         <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
       </bpmn:extensionElements>
@@ -30,7 +30,7 @@
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>SequenceFlow_00tsj6z</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1e0bsji" sourceRef="Task_02e0b4i" targetRef="Task_1c5yndx" />
+    <bpmn:sequenceFlow id="SequenceFlow_1e0bsji" sourceRef="phone-calling" targetRef="Task_1c5yndx" />
     <bpmn:sequenceFlow id="SequenceFlow_129k2pj" sourceRef="Task_1c5yndx" targetRef="Task_0shaaor" />
     <bpmn:serviceTask id="Task_1c5yndx" name="Phone answer" camunda:delegateExpression="${phoneAnswerDelegate}">
       <bpmn:incoming>SequenceFlow_1e0bsji</bpmn:incoming>
@@ -73,7 +73,7 @@
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="222" y="220" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="UserTask_0bbmkqh_di" bpmnElement="Task_02e0b4i">
+      <bpmndi:BPMNShape id="UserTask_0bbmkqh_di" bpmnElement="phone-calling">
         <dc:Bounds x="320" y="198" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_00tsj6z_di" bpmnElement="SequenceFlow_00tsj6z">
