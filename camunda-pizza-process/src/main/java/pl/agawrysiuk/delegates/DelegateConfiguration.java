@@ -12,8 +12,8 @@ import pl.agawrysiuk.delegates.servicetasks.PhoneAnswerDelegate;
 public class DelegateConfiguration {
 
     @Bean
-    public ChangeStepListener changeStepListener() {
-        return new ChangeStepListener(new RestTemplate());
+    public ChangeStepListener changeStepListener(RestTemplate restTemplate) {
+        return new ChangeStepListener(restTemplate);
     }
 
     @Bean

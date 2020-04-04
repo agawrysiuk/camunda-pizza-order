@@ -15,13 +15,15 @@ public class ChangeStepListener implements ExecutionListener {
 
     @Override
     public void notify(DelegateExecution execution) throws Exception {
+        String processId = execution.getProcessInstanceId();
         String stepId = execution.getActivityInstanceId();
         String message = "Step changed!";
 
         CamundaMessage camundaMessage = new CamundaMessage();
+        camundaMessage.setProcessId(processId);
         camundaMessage.setStepId(stepId);
         camundaMessage.setMessage(message);
 
-        restTemplate.put("http://localhost:8080/switchStep",camundaMessage);
+        restTemplate.put("http://localhost:8080/switchStep", camundaMessage);
     }
 }

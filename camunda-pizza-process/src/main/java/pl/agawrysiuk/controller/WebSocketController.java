@@ -18,7 +18,7 @@ public class WebSocketController {
 
     @PutMapping("/switchStep")
     public void switchStep(@RequestBody CamundaMessage message) {
-        log.info("Received message: {}", message);
+        log.info("Sending message to front: {}", message);
     }
 
     @MessageMapping("/send/step-change")
