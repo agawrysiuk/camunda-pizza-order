@@ -20,16 +20,16 @@ public class WebSocketController {
 
     @PutMapping("/switchStep")
     public void switchStep(@RequestBody CamundaMessage message) {
+        // timer to not outrun WebSocket connection
         new Timer().schedule(
                 new TimerTask() {
                     @Override
                     public void run() {
-                        log.info("Sending message to front: {}", message.getProcessId());
-//                        template.convertAndSendToUser(message.getProcessId(),"/next", message);
-                        template.convertAndSend("/next", message);
+                        log.info("Sending step-change message to front for processId: {}", message.getProcessId());
+                        template.convertAndSendToUser(message.getProcessId(),"/next", message);
                     }
                 },
-                2000
+                1000
         );
     }
 }

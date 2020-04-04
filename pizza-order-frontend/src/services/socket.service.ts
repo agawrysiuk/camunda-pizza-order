@@ -15,13 +15,13 @@ export class SocketService {
   constructor() {}
 
   public initializeWebSocketConnection(processId: string) {
-    const webSocket = new SockJS(environment.backendUrl + environment.socketUrl);
+    const webSocket = new SockJS(this.getConvertedSocketUrl(processId));
     this.client = Stomp.over(webSocket);
     this.client.connect({}, this.onConnect);
   }
 
   private onConnect = (frame?: Frame) => {
-    this.client.subscribe('/next', (message: Message) => {
+    this.client.subscribe('/user/next', (message: Message) => {
       console.log('Got a message: ' + message);
     });
   }
