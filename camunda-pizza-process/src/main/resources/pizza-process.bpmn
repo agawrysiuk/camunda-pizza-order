@@ -21,6 +21,9 @@
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="SequenceFlow_00tsj6z" sourceRef="StartEvent_1" targetRef="Task_02e0b4i" />
     <bpmn:userTask id="Task_02e0b4i" name="Phone calling">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_00tsj6z</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1e0bsji</bpmn:outgoing>
     </bpmn:userTask>
