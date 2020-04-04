@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DataService} from './data.service';
 import {CamundaVariables} from '../model/generated-dto';
 
 @Injectable({
@@ -8,11 +7,10 @@ import {CamundaVariables} from '../model/generated-dto';
 })
 export class ProcessManagerService {
 
-  constructor(private http: HttpClient,
-              private data: DataService) { }
+  constructor(private http: HttpClient) { }
 
-  public startProcess() {
-    this.http.get<CamundaVariables>('http://localhost:8080/start?id=PizzaProcess')
-      .subscribe(variables => this.data.variables = variables);
+  public startProcess(): Promise<CamundaVariables> {
+    return this.http.get<CamundaVariables>('http://localhost:8080/start?id=PizzaProcess')
+      .toPromise() as Promise<CamundaVariables>;
   }
 }

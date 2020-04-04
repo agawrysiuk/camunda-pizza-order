@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {PopupService} from '../services/popup.service';
 import {EmitterMessages} from "../model/emitter-messages";
+import {SocketService} from "../services/socket.service";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
   showPizzaDialog: boolean = false;
   showOrderDialog: boolean = false;
 
-  constructor(private popupService: PopupService) {
+  constructor(private popupService: PopupService,
+              private socket: SocketService) {
     popupService.changeEmitted$.subscribe(
       text => {
         this.parseEmitter(text);
