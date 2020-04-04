@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Frame, Stomp} from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
-import {Message} from "@stomp/stompjs/esm5/i-message";
-import {CompatClient} from "@stomp/stompjs/esm5/compatibility/compat-client";
+import {Message} from '@stomp/stompjs/esm5/i-message';
+import {CompatClient} from '@stomp/stompjs/esm5/compatibility/compat-client';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,11 @@ import {CompatClient} from "@stomp/stompjs/esm5/compatibility/compat-client";
 export class SocketService {
 
   private client: CompatClient;
-  private readonly serverUrl: string;
 
-  constructor() {
-    this.serverUrl = 'http://localhost:8080/socket';
-  }
+  constructor() {}
 
   public initializeWebSocketConnection(processId: string) {
-    const webSocket = new SockJS(this.serverUrl);
+    const webSocket = new SockJS(this.getConvertedSocketUrl(processId));
     this.client = Stomp.over(webSocket);
     this.client.connect({}, this.onConnect);
   }
@@ -26,5 +24,9 @@ export class SocketService {
     this.client.subscribe('/next', (message: Message) => {
       console.log('Got a message: ' + message);
     });
+  }
+
+  private getConvertedSocketUrl(processId: string) {
+    return environment.backendUrl + environment.socketUrl + '?processId=' + processId;
   }
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {ProcessManagerService} from "../../services/process-manager.service";
+import {InitService} from "../../services/init.service";
 
 @Component({
   selector: 'app-start-process',
@@ -12,7 +12,7 @@ export class StartProcessComponent implements OnInit {
   private processStarted: boolean = false;
 
   constructor(private router: Router,
-              private processManagerService: ProcessManagerService) { }
+              private initService: InitService) { }
 
   ngOnInit() {
   }
@@ -20,7 +20,7 @@ export class StartProcessComponent implements OnInit {
   startProcess(startButton: HTMLButtonElement) {
     if (!this.processStarted) {
       this.processStarted = true;
-      this.processManagerService.startProcess();
+      this.initService.init();
       startButton.className += ' orange-button-animation';
       setTimeout(() => {
           this.router.navigate(['phone-calling']);
