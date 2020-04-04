@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequiredArgsConstructor
 public class WebSocketController {
+
     private final SimpMessagingTemplate template;
 
     @MessageMapping("/send/step-change")
