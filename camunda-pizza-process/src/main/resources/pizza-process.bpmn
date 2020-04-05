@@ -8,9 +8,9 @@
       <bpmn:lane id="Lane_1xzxxlc">
         <bpmn:flowNodeRef>phone-calling</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_0emvap6</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_0qplbsr</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_190rw07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>pizzeria-answered</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>write-address</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>thank-you</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0ayz79w</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_08jrr8l">
@@ -36,23 +36,32 @@
       <bpmn:incoming>SequenceFlow_1e0bsji</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_129k2pj</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="SequenceFlow_0bjb2t4" sourceRef="Task_0shaaor" targetRef="Task_0emvap6" />
-    <bpmn:sequenceFlow id="SequenceFlow_1ghkm1s" sourceRef="Task_0emvap6" targetRef="Task_0qplbsr" />
+    <bpmn:sequenceFlow id="SequenceFlow_0bjb2t4" sourceRef="Task_0shaaor" targetRef="pizzeria-answered" />
+    <bpmn:sequenceFlow id="SequenceFlow_1ghkm1s" sourceRef="pizzeria-answered" targetRef="write-address" />
     <bpmn:serviceTask id="Task_0shaaor" name="Create variables" camunda:delegateExpression="${createVariablesDelegate}">
       <bpmn:incoming>SequenceFlow_129k2pj</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0bjb2t4</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_0emvap6" name="Pizzeria Answered">
+    <bpmn:userTask id="pizzeria-answered" name="Pizzeria Answered">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0bjb2t4</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1ghkm1s</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_0qplbsr" name="Write address">
+    <bpmn:userTask id="write-address" name="Write address">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1ghkm1s</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0iot9pz</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_0iot9pz" sourceRef="Task_0qplbsr" targetRef="Task_19s5vay" />
-    <bpmn:sequenceFlow id="SequenceFlow_0ce9cnf" sourceRef="Task_19s5vay" targetRef="Task_190rw07" />
-    <bpmn:task id="Task_190rw07" name="Thank you">
+    <bpmn:sequenceFlow id="SequenceFlow_0iot9pz" sourceRef="write-address" targetRef="Task_19s5vay" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ce9cnf" sourceRef="Task_19s5vay" targetRef="thank-you" />
+    <bpmn:task id="thank-you" name="Thank you">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0ce9cnf</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_075mhaz</bpmn:outgoing>
     </bpmn:task>
@@ -63,7 +72,7 @@
     <bpmn:endEvent id="EndEvent_0ayz79w">
       <bpmn:incoming>SequenceFlow_075mhaz</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_075mhaz" sourceRef="Task_190rw07" targetRef="EndEvent_0ayz79w" />
+    <bpmn:sequenceFlow id="SequenceFlow_075mhaz" sourceRef="thank-you" targetRef="EndEvent_0ayz79w" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0c8pwg4">
@@ -104,21 +113,21 @@
         <di:waypoint x="660" y="440" />
         <di:waypoint x="660" y="278" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_1wu6zo0_di" bpmnElement="Task_0emvap6">
+      <bpmndi:BPMNShape id="UserTask_1wu6zo0_di" bpmnElement="pizzeria-answered">
         <dc:Bounds x="610" y="198" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1ghkm1s_di" bpmnElement="SequenceFlow_1ghkm1s">
         <di:waypoint x="710" y="238" />
         <di:waypoint x="900" y="238" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_1yx9h9l_di" bpmnElement="Task_0qplbsr">
+      <bpmndi:BPMNShape id="UserTask_1yx9h9l_di" bpmnElement="write-address">
         <dc:Bounds x="900" y="198" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0iot9pz_di" bpmnElement="SequenceFlow_0iot9pz">
         <di:waypoint x="950" y="278" />
         <di:waypoint x="950" y="440" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_190rw07_di" bpmnElement="Task_190rw07">
+      <bpmndi:BPMNShape id="Task_190rw07_di" bpmnElement="thank-you">
         <dc:Bounds x="1170" y="198" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0ce9cnf_di" bpmnElement="SequenceFlow_0ce9cnf">
