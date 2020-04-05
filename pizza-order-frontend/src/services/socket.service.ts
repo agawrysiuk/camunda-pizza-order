@@ -4,6 +4,8 @@ import * as SockJS from 'sockjs-client';
 import {Message} from '@stomp/stompjs/esm5/i-message';
 import {CompatClient} from '@stomp/stompjs/esm5/compatibility/compat-client';
 import {environment} from '../environments/environment';
+import {DataService} from './data.service';
+import {CamundaMessage} from '../model/generated-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,9 @@ import {environment} from '../environments/environment';
 export class SocketService {
 
   private client: CompatClient;
+  private step;
 
-  constructor() {}
+  constructor(private data: DataService) {}
 
   public initializeWebSocketConnection(processId: string) {
     const webSocket = new SockJS(this.getConvertedSocketUrl(processId));
@@ -22,7 +25,10 @@ export class SocketService {
 
   private onConnect = (frame?: Frame) => {
     this.client.subscribe('/user/next', (message: Message) => {
-      console.log('Got a message: ' + message);
+      const camundaMessage: CamundaMessage = JSON.parse(message.body);
+      this.data.variables = camundaMessage.camundaVariables;
+      this.step = camundaMessage.stepId;
+      console.log(camundaMessage.message);
     });
   }
 
