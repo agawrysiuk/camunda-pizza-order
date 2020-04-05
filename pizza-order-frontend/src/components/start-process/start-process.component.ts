@@ -17,11 +17,12 @@ export class StartProcessComponent implements OnInit {
   ngOnInit() {
   }
 
-  startProcess(startButton: HTMLButtonElement) {
+  startProcess() {
     if (!this.processStarted) {
       this.processStarted = true;
       this.initService.init();
-      startButton.className += ' orange-button-animation';
+      document.getElementById('startButton').className += ' orange-button-animation';
+      document.getElementById('hideButton').className += ' hide-button-animation';
       setTimeout(() => {
           this.router.navigate(['phone-calling']);
         }
