@@ -6,6 +6,7 @@ import {CompatClient} from '@stomp/stompjs/esm5/compatibility/compat-client';
 import {environment} from '../environments/environment';
 import {DataService} from './data.service';
 import {CamundaMessage} from '../model/generated-dto';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,9 @@ import {CamundaMessage} from '../model/generated-dto';
 export class SocketService {
 
   private client: CompatClient;
-  private step;
+  private stepId;
+  private stepEmitter = new Subject<any>();
+  stepChanged$ = this.stepEmitter.asObservable();
 
   constructor(private data: DataService) {}
 
@@ -27,8 +30,8 @@ export class SocketService {
     this.client.subscribe('/user/next', (message: Message) => {
       const camundaMessage: CamundaMessage = JSON.parse(message.body);
       this.data.variables = camundaMessage.camundaVariables;
-      this.step = camundaMessage.stepId;
-      console.log(camundaMessage.message);
+      this.stepId = camundaMessage.stepId;
+      this.stepEmitter.next(this.stepId);
     });
   }
 

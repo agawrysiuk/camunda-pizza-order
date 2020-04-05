@@ -20,11 +20,10 @@ export class StartProcessComponent implements OnInit {
   startProcess() {
     if (!this.processStarted) {
       this.processStarted = true;
-      this.initService.init();
       document.getElementById('startButton').className += ' orange-button-animation';
       document.getElementById('hideButton').className += ' hide-button-animation';
       setTimeout(() => {
-          this.router.navigate(['phone-calling']);
+          this.initService.init();
         }
         , 1000);
     }

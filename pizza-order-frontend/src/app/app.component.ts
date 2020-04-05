@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {PopupService} from '../services/popup.service';
 import {EmitterMessages} from "../model/emitter-messages";
 import {SocketService} from "../services/socket.service";
+import {ViewResolverService} from "../services/view-resolver.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent {
   showOrderDialog: boolean = false;
 
   constructor(private popupService: PopupService,
-              private socket: SocketService) {
+              private socket: SocketService,
+              private viewResolver: ViewResolverService) {
     popupService.changeEmitted$.subscribe(
       text => {
         this.parseEmitter(text);
