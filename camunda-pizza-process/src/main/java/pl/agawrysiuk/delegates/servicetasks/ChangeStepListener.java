@@ -25,7 +25,7 @@ public class ChangeStepListener implements ExecutionListener {
         CamundaVariables variables = ConvertCamundaVariables.convertToVariables(execution.getVariables());
         return CamundaMessage.builder()
                 .processId(execution.getProcessInstanceId())
-                .stepId(execution.getActivityInstanceId())
+                .stepId(execution.getCurrentActivityId())
                 .message("Step changed!")
                 .camundaVariables(variables)
                 .build();
