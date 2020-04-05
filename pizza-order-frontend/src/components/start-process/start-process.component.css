@@ -2,7 +2,7 @@
   content: none;
   animation-name: buttonClickAnimation;
   animation-duration: 1250ms;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
@@ -22,7 +22,7 @@
   content: none;
   animation-name: hideButtonAnimation;
   animation-duration: 1250ms;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
