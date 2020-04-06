@@ -5,11 +5,11 @@ import pl.agawrysiuk.camunda.dto.CamundaVariables;
 
 import java.util.Map;
 
-public class ConvertCamundaVariables {
+public class CamundaVariablesConverter {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    private ConvertCamundaVariables() {}
+    private CamundaVariablesConverter() {}
 
     public static Map<String, Object> convertToMap(CamundaVariables variables) {
         return MAPPER.convertValue(variables, Map.class);

@@ -5,9 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.ExecutionListener;
 import org.springframework.web.client.RestTemplate;
-import pl.agawrysiuk.camunda.dto.CamundaMessage;
 import pl.agawrysiuk.camunda.dto.CamundaVariables;
-import pl.agawrysiuk.utils.ConvertCamundaVariables;
+import pl.agawrysiuk.camunda.messages.CamundaMessage;
+import pl.agawrysiuk.utils.CamundaVariablesConverter;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class ChangeStepListener implements ExecutionListener {
     }
 
     private CamundaMessage buildMessage(DelegateExecution execution) {
-        CamundaVariables variables = ConvertCamundaVariables.convertToVariables(execution.getVariables());
+        CamundaVariables variables = CamundaVariablesConverter.convertToVariables(execution.getVariables());
         return CamundaMessage.builder()
                 .processId(execution.getProcessInstanceId())
                 .stepId(execution.getCurrentActivityId())

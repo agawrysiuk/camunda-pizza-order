@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-04 16:35:47.
+// Generated using typescript-generator version 2.21.588 on 2020-04-06 21:13:37.
 
 export interface DeliveryAddress {
     name: string;
@@ -31,4 +31,16 @@ export interface CamundaMessage {
     stepId: string;
     message: string;
     camundaVariables: CamundaVariables;
+}
+
+export interface StepMessage {
+    replyMessage: StepReplyMessage;
+    processId: string;
+    stepId: string;
+}
+
+export const enum StepReplyMessage {
+    REQUEST_OK = "REQUEST_OK",
+    BAD_PROCESSID = "BAD_PROCESSID",
+    PROCESS_FINISHED = "PROCESS_FINISHED",
 }

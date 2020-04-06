@@ -103,9 +103,12 @@
                         <class>pl.agawrysiuk.model.DeliveryAddress</class>
                         <class>pl.agawrysiuk.model.Pizza</class>
                         <class>pl.agawrysiuk.camunda.dto.CamundaVariables</class>
-                        <class>pl.agawrysiuk.camunda.dto.CamundaMessage</class>
+                        <class>pl.agawrysiuk.camunda.messages.CamundaMessage</class>
+                        <class>pl.agawrysiuk.camunda.messages.StepMessage</class>
+                        <class>pl.agawrysiuk.enums.StepReplyMessage</class>
                     </classes>
                     <outputKind>module</outputKind>
+                    <mapEnum>asEnum</mapEnum>
                     <outputFile>../pizza-order-frontend/src/model/generated-dto.ts</outputFile>
                 </configuration>
             </plugin>

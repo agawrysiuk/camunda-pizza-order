@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.agawrysiuk.camunda.dto.CamundaVariables;
+import pl.agawrysiuk.camunda.messages.StepMessage;
 
 @SpringBootTest
 @Slf4j
@@ -17,9 +18,15 @@ class ProcessManagerTest {
     private ProcessManager manager;
 
     @Test
-    void startProcess() throws JsonProcessingException {
+    void starting_process_assert_variables_not_null() throws JsonProcessingException {
         CamundaVariables variables = manager.startProcess("PizzaProcess");
         log.info(new ObjectMapper().writeValueAsString(variables));
         Assertions.assertNotNull(variables);
+    }
+
+    @Test
+    void given_processId_return_message() throws JsonProcessingException {
+        StepMessage message = manager.getStepMessage("123");
+        log.info(new ObjectMapper().writeValueAsString(message));
     }
 }

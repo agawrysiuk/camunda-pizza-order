@@ -6,7 +6,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pl.agawrysiuk.camunda.dto.CamundaMessage;
+import pl.agawrysiuk.camunda.messages.CamundaMessage;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -1,9 +1,8 @@
-package pl.agawrysiuk.camunda.dto;
+package pl.agawrysiuk.camunda.messages;
 
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
+import pl.agawrysiuk.camunda.dto.CamundaVariables;
 
-@Slf4j
 @Getter
 @Setter
 @NoArgsConstructor
