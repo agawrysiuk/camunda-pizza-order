@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {PopupService} from "../../services/popup.service";
-import {DataService} from "../../services/data.service";
-import {EmitterMessages} from "../../model/emitter-messages";
+import {PopupService} from '../../services/popup.service';
+import {DataService} from '../../services/data.service';
+import {EmitterMessages} from '../../model/emitter-messages';
+import {ViewResolverService} from '../../services/view-resolver.service';
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -29,14 +30,15 @@ export class PizzeriaAnsweredComponent implements OnInit {
     3: 'Additional ham'
   };
 
-  public pickAdditions: boolean = false;
-  public additionsPicked: boolean = false;
-  public delivery: boolean = false;
+  public pickAdditions = false;
+  public additionsPicked = false;
+  public delivery = false;
 
   constructor(private router: Router,
               private popupService: PopupService,
-              public data: DataService) {
-
+              public data: DataService,
+              private viewResolver: ViewResolverService) {
+    this.viewResolver.checkStep();
     popupService.changeEmitted$.subscribe(
       text => {
         if (text === EmitterMessages.PIZZA_PICKED) {
@@ -48,7 +50,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
   ngOnInit() {}
 
   chooseAction(key: string) {
-    for (let mapKey in this.answersMap) {
+    for (const mapKey in this.answersMap) {
       if (mapKey !== key) {
         document.getElementById(mapKey + '-answer').className = 'display-none';
       } else {
@@ -83,7 +85,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
   chooseAddition(key: string) {
     this.data.variables.additions = this.additionsMap[key];
     this.additionsPicked = true;
-    for (let mapKey in this.additionsMap) {
+    for (const mapKey in this.additionsMap) {
       if (mapKey !== key) {
         document.getElementById(mapKey + '-addition').className = 'display-none';
       } else {

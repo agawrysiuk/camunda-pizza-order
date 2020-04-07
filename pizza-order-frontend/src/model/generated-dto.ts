@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-06 21:13:37.
+// Generated using typescript-generator version 2.21.588 on 2020-04-07 21:04:33.
 
 export interface DeliveryAddress {
     name: string;

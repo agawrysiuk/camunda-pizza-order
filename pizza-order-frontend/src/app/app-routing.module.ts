@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {StartProcessComponent} from '../components/start-process/start-process.component';
 import {PhoneCallingComponent} from '../components/phone-calling/phone-calling.component';
@@ -8,6 +8,7 @@ import {ThankYouComponent} from '../components/thank-you/thank-you.component';
 
 const routes: Routes = [
   { path: '', component: StartProcessComponent },
+  { path: 'start-process', component: StartProcessComponent },
   { path: 'phone-calling', component: PhoneCallingComponent },
   { path: 'pizzeria-answered', component: PizzeriaAnsweredComponent },
   { path: 'write-address', component: WriteAddressComponent },

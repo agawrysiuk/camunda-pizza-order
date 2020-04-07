@@ -22,7 +22,7 @@ public class ProcessController {
         return processManager.startProcess(id);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/get-step")
     public StepMessage getStepMessage(@RequestParam String processId) {
         log.info("Checking process id {}", processId);
         return processManager.getStepMessage(processId);

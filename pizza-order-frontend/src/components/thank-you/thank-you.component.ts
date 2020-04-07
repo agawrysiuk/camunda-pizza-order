@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {EmitterMessages} from "../../model/emitter-messages";
+import {ViewResolverService} from "../../services/view-resolver.service";
 
 @Component({
   selector: 'app-thank-you',
@@ -9,7 +10,9 @@ import {EmitterMessages} from "../../model/emitter-messages";
 })
 export class ThankYouComponent implements OnInit {
 
-  constructor(private popupService: PopupService) {
+  constructor(private popupService: PopupService,
+              private viewResolver: ViewResolverService) {
+    this.viewResolver.checkStep();
     this.popupService.emitChange(EmitterMessages.ORDER_SUMMARY);
     this.popupService.changeEmitted$.subscribe(text => {
       if (text === EmitterMessages.ORDER_APPROVED) {

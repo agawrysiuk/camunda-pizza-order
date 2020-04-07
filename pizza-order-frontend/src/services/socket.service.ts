@@ -14,7 +14,7 @@ import {Subject} from "rxjs";
 export class SocketService {
 
   private client: CompatClient;
-  private stepId;
+  public stepId;
   private stepEmitter = new Subject<any>();
   stepChanged$ = this.stepEmitter.asObservable();
 
