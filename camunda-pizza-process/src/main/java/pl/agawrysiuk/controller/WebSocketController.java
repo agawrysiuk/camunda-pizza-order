@@ -18,7 +18,7 @@ public class WebSocketController {
 
     private final SimpMessagingTemplate template;
 
-    @PutMapping("/switchStep")
+    @PutMapping("/switch-step")
     public void switchStep(@RequestBody CamundaMessage message) {
         // timer to not outrun WebSocket connection
         new Timer().schedule(
