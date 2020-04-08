@@ -3,11 +3,17 @@ import {HttpClient} from '@angular/common/http';
 import {CamundaVariables, StepMessage, StepReplyMessage} from '../model/generated-dto';
 import {environment} from '../environments/environment';
 import {DataService} from './data.service';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProcessManagerService {
+
+  stepId: string;
+
+  private stepEmitter = new Subject<any>();
+  stepChanged$ = this.stepEmitter.asObservable();
 
   constructor(private http: HttpClient,
               private data: DataService) {
@@ -16,6 +22,16 @@ export class ProcessManagerService {
   public startProcess(): Promise<CamundaVariables> {
     return this.http.get<CamundaVariables>(environment.backendUrl + '/start?id=PizzaProcess')
       .toPromise() as Promise<CamundaVariables>;
+  }
+
+  public goToNextStep(): Promise<CamundaVariables> {
+    return this.http.get<CamundaVariables>(environment.backendUrl + '/next-step?processId=' + this.data.variables.processId)
+      .toPromise() as Promise<CamundaVariables>;
+  }
+
+  public emitNewStep(stepId: string) {
+    this.stepId = stepId;
+    this.stepEmitter.next(this.stepId);
   }
 
   public findStep(): Promise<StepMessage> {
