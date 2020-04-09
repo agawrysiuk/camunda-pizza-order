@@ -34,6 +34,8 @@ export class PizzeriaAnsweredComponent implements OnInit {
   public additionsPicked = false;
   public delivery = false;
 
+  public showPizzaDialog: boolean = false;
+
   constructor(private router: Router,
               private popupService: PopupService,
               public data: DataService,
@@ -70,7 +72,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   private showPopupWithPizzas() {
     setTimeout(() => {
-        this.popupService.emitChange(EmitterMessages.PICK_PIZZA);
+        this.showPizzaDialog = true;
       }
       , 2000);
   }

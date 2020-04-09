@@ -27,6 +27,10 @@ public class ProcessManager {
         return variables;
     }
 
+    public CamundaVariables finishStep(String processId) {
+        return null;
+    }
+
     public StepMessage getStepMessage(String processId) {
         Map<String, Object> variablesMap;
         try {

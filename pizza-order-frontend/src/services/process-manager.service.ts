@@ -24,9 +24,8 @@ export class ProcessManagerService {
       .toPromise() as Promise<CamundaVariables>;
   }
 
-  public goToNextStep(): Promise<CamundaVariables> {
-    return this.http.get<CamundaVariables>(environment.backendUrl + '/next-step?processId=' + this.data.variables.processId)
-      .toPromise() as Promise<CamundaVariables>;
+  public finishStep(): void {
+    this.http.get(environment.backendUrl + '/finish-step?processId=' + this.data.variables.processId).subscribe();
   }
 
   public emitNewStep(stepId: string) {

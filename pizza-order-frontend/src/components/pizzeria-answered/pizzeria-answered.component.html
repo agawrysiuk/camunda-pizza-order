@@ -15,7 +15,7 @@
         <p id="reaction-text" class="tile-hidden"></p>
       </div>
       <div class="conversation-tile tile-hidden tile-answer-start-animation">
-        <p id="your-pick" class="tile-hidden">{{data.pizzaPicked?.name}} looks nice.</p>
+        <p id="your-pick" class="tile-hidden">{{data.variables.pizza?.name}} looks nice.</p>
       </div>
       <div class="conversation-tile">
         <img id="picked-img" class="tile-hidden" src="assets/images/waitress.png" alt="waitress">
@@ -38,4 +38,8 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="showPizzaDialog">
+  <div id="greyScreen" class="grey-screen"></div>
+  <app-choose-pizza class="display-dialog"></app-choose-pizza>
 </div>
