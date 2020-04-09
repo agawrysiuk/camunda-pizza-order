@@ -44,6 +44,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
     popupService.changeEmitted$.subscribe(
       text => {
         if (text === EmitterMessages.PIZZA_PICKED) {
+          this.showPizzaDialog = false;
           this.pizzaPickedAnimation();
         }
       });
