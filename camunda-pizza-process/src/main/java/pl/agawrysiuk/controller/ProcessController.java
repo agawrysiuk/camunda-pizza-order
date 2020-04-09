@@ -30,7 +30,7 @@ public class ProcessController {
 
     @GetMapping("/finish-step")
     public void goToNextStep(@RequestParam String processId) {
-        log.info("Going to the next step of process id {}", processId);
+        log.info("Got a call to change the step of process id {}", processId);
         processManager.finishStep(processId);
     }
 }

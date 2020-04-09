@@ -18,6 +18,7 @@ import java.util.Map;
 public class ProcessManager {
 
     private final RuntimeService runtimeService;
+    private final ProcessFacade processFacade;
 
     public CamundaVariables startProcess(String processName) {
         CamundaVariables variables = new CamundaVariables();
@@ -27,8 +28,8 @@ public class ProcessManager {
         return variables;
     }
 
-    public CamundaVariables finishStep(String processId) {
-        return null;
+    public void finishStep(String processId) {
+        processFacade.finishStep(processId);
     }
 
     public StepMessage getStepMessage(String processId) {
