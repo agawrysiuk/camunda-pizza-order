@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ProcessManagerService} from "../../services/process-manager.service";
 
 @Component({
   selector: 'app-phone-calling',
@@ -10,7 +10,7 @@ export class PhoneCallingComponent implements OnInit {
 
   private clicked: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private manager: ProcessManagerService) { }
 
   ngOnInit() {
   }
@@ -24,7 +24,7 @@ export class PhoneCallingComponent implements OnInit {
       document.getElementById('callingTab').className = 'calling-tab calling-tab-end-animation';
       this.clicked = true;
       setTimeout(() => {
-          this.router.navigate(['pizzeria-answered']);
+          this.manager.finishStep();
         }
         , 5000);
     }

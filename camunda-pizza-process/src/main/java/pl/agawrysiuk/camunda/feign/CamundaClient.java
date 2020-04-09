@@ -12,7 +12,7 @@ import java.util.List;
 @FeignClient(value = "camundaClient", url = "http://localhost:8080/rest")
 public interface CamundaClient {
 
-    @GetMapping(value = "/task?processId={processId}")
+    @GetMapping(value = "/task?processInstanceId={processId}")
     List<Task> getActiveTasks(@PathVariable("processId") String processId);
 
     @PostMapping(value = "/task/{taskId}/complete", consumes = MediaType.APPLICATION_JSON_VALUE)

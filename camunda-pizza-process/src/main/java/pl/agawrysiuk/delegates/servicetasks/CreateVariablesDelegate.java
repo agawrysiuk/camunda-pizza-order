@@ -8,6 +8,7 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 public class CreateVariablesDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
+        delegateExecution.setVariable("processId",delegateExecution.getProcessInstanceId());
         log.info("CreateVariablesDelegate started");
     }
 }

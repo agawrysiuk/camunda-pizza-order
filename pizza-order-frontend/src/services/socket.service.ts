@@ -27,8 +27,8 @@ export class SocketService {
   private onConnect = (frame?: Frame) => {
     this.client.subscribe('/user/next', (message: Message) => {
       const camundaMessage: CamundaMessage = JSON.parse(message.body);
-      this.data.variables = camundaMessage.camundaVariables;
-      this.manager.emitNewStep(camundaMessage.stepId);
+      this.data.setVariables(camundaMessage.camundaVariables).then(
+        variables => this.manager.emitNewStep(camundaMessage.stepId));
     });
   }
 
