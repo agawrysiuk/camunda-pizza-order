@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.agawrysiuk.camunda.dto.CamundaVariables;
 import pl.agawrysiuk.camunda.messages.StepMessage;
+import pl.agawrysiuk.camunda.process.ProcessManager;
 
 @SpringBootTest
 @Slf4j

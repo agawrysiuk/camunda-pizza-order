@@ -1,4 +1,4 @@
-package pl.agawrysiuk.process;
+package pl.agawrysiuk.camunda.process;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
