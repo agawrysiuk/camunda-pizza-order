@@ -10,8 +10,8 @@
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>pizzeria-answered</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>write-address</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>thank-you</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0ayz79w</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>thank-you</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_08jrr8l">
         <bpmn:flowNodeRef>Task_19s5vay</bpmn:flowNodeRef>
@@ -48,13 +48,6 @@
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_0iot9pz" sourceRef="write-address" targetRef="Task_19s5vay" />
     <bpmn:sequenceFlow id="SequenceFlow_0ce9cnf" sourceRef="Task_19s5vay" targetRef="thank-you" />
-    <bpmn:task id="thank-you" name="Thank you">
-      <bpmn:extensionElements>
-        <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_0ce9cnf</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_075mhaz</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:serviceTask id="Task_19s5vay" name="Check the data" camunda:delegateExpression="${checkDataDelegate}">
       <bpmn:incoming>SequenceFlow_0iot9pz</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0ce9cnf</bpmn:outgoing>
@@ -73,6 +66,13 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_0dz762s" sourceRef="Task_1c5yndx" targetRef="pizzeria-answered" />
     <bpmn:sequenceFlow id="SequenceFlow_0s6alq7" sourceRef="Task_0shaaor" targetRef="phone-calling" />
+    <bpmn:userTask id="thank-you" name="Thank you">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${changeStepListener}" event="start" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0ce9cnf</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_075mhaz</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0c8pwg4">
@@ -121,9 +121,6 @@
         <di:waypoint x="950" y="278" />
         <di:waypoint x="950" y="440" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_190rw07_di" bpmnElement="thank-you">
-        <dc:Bounds x="1170" y="198" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0ce9cnf_di" bpmnElement="SequenceFlow_0ce9cnf">
         <di:waypoint x="1000" y="480" />
         <di:waypoint x="1220" y="480" />
@@ -151,6 +148,9 @@
         <di:waypoint x="305" y="238" />
         <di:waypoint x="320" y="238" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0ie9py4_di" bpmnElement="thank-you">
+        <dc:Bounds x="1170" y="198" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

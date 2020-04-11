@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
-import {EmitterMessages} from "../../model/emitter-messages";
+import {EmitterMessages} from '../../model/emitter-messages';
 
 @Component({
   selector: 'app-order-summary',

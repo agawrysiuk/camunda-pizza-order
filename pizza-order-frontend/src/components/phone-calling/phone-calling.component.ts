@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProcessManagerService} from "../../services/process-manager.service";
+import {ViewResolverService} from "../../services/view-resolver.service";
 
 @Component({
   selector: 'app-phone-calling',
@@ -10,7 +11,10 @@ export class PhoneCallingComponent implements OnInit {
 
   private clicked: boolean = false;
 
-  constructor(private manager: ProcessManagerService) { }
+  constructor(private viewResolver: ViewResolverService,
+              private manager: ProcessManagerService) {
+    this.viewResolver.checkStep();
+  }
 
   ngOnInit() {
   }

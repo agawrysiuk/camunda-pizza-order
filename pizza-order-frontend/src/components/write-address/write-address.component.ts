@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
 import {DeliveryAddress} from '../../model/generated-dto';
+import {ViewResolverService} from "../../services/view-resolver.service";
+import {ProcessManagerService} from "../../services/process-manager.service";
 
 @Component({
   selector: 'app-write-address',
@@ -14,7 +16,10 @@ export class WriteAddressComponent implements OnInit {
   public address: DeliveryAddress;
 
   constructor(private data: DataService,
-              private router: Router) {
+              private router: Router,
+              private viewResolver: ViewResolverService,
+              private manager: ProcessManagerService) {
+    this.viewResolver.checkStep();
     this.address = this.data.variables.deliveryAddress;
   }
 
@@ -25,7 +30,7 @@ export class WriteAddressComponent implements OnInit {
     this.data.variables.deliveryAddress = this.address;
     document.getElementById('address-tab').className = 'calling-tab slide-out';
     setTimeout(() => {
-        this.router.navigate(['thank-you']);
+        this.manager.finishStep();
       }
       , 500);
   }

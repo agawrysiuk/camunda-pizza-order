@@ -16,8 +16,8 @@ public interface CamundaClient {
     @GetMapping(value = "/task?processInstanceId={processId}")
     List<Task> getActiveTasks(@PathVariable("processId") String processId);
 
-    @PostMapping(value = "/process-instance/{processId}/variables")
-    void updateProcessVariables(@PathVariable String processId, VariablesUpdateMessage request);
+    @PostMapping(value = "/process-instance/{processId}/variables", consumes = MediaType.APPLICATION_JSON_VALUE)
+    void updateProcessVariables(@PathVariable("processId") String processId, VariablesUpdateMessage request);
 
     @PostMapping(value = "/task/{taskId}/complete", consumes = MediaType.APPLICATION_JSON_VALUE)
     void completeTask(@PathVariable("taskId") String taskId, String jsonBody);

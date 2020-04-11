@@ -2,16 +2,15 @@ package pl.agawrysiuk.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import pl.agawrysiuk.camunda.messages.StepMessage;
 import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.camunda.process.ProcessManager;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class ProcessController {
 
@@ -29,7 +28,7 @@ public class ProcessController {
         return processManager.getStepMessage(processId);
     }
 
-    @GetMapping("/finish-step")
+    @PostMapping(value = "/finish-step", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void goToNextStep(@RequestParam String processId, @RequestBody CamundaVariables variables) {
         log.info("Got a call to change the step of process id {}", processId);
         processManager.finishStep(processId, variables);

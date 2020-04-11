@@ -22,7 +22,7 @@ public class ProcessFacade {
         List<Task> taskList = camundaClient.getActiveTasks(processId);
         boolean taskListResult = confirmListSizeOne(taskList);
         if (taskListResult) {
-            updateVariables(processId, variables);
+//            updateVariables(processId, variables);
             completeTask(taskList.get(0));
         } else {
             throwCompleteTaskError(processId);
@@ -34,6 +34,7 @@ public class ProcessFacade {
     }
 
     private void updateVariables(String processId, CamundaVariables variables) {
+        log.info("Updating variables for the process id {}", processId);
         camundaClient.updateProcessVariables(processId, new VariablesUpdateMessage(variables));
     }
 
@@ -43,6 +44,7 @@ public class ProcessFacade {
     }
 
     private void throwCompleteTaskError(String processId) {
+        //todo add enums and error builder
         StringBuilder sb = new StringBuilder()
                 .append("Too many instances of processId ")
                 .append(processId)

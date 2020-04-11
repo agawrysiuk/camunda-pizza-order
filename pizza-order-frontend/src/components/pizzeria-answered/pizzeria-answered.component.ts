@@ -4,6 +4,7 @@ import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
 import {EmitterMessages} from '../../model/emitter-messages';
 import {ViewResolverService} from '../../services/view-resolver.service';
+import {ProcessManagerService} from "../../services/process-manager.service";
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -39,7 +40,8 @@ export class PizzeriaAnsweredComponent implements OnInit {
   constructor(private router: Router,
               private popupService: PopupService,
               public data: DataService,
-              private viewResolver: ViewResolverService) {
+              private viewResolver: ViewResolverService,
+              private manager: ProcessManagerService) {
     this.viewResolver.checkStep();
     popupService.changeEmitted$.subscribe(
       text => {
@@ -101,7 +103,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
         setTimeout(() => {
             document.getElementById('calling-tab').className += ' calling-tab-end-animation';
             setTimeout(() => {
-                this.router.navigate(['write-address']);
+                this.manager.finishStep();
               }
               , 500);
           }
