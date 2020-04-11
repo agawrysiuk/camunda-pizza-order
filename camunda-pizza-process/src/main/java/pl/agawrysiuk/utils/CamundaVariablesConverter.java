@@ -1,7 +1,7 @@
 package pl.agawrysiuk.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.agawrysiuk.camunda.dto.CamundaVariables;
+import pl.agawrysiuk.camunda.model.CamundaVariables;
 
 import java.util.Map;
 

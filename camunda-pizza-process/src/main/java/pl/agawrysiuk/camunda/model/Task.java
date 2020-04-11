@@ -1,4 +1,4 @@
-package pl.agawrysiuk.camunda.dto;
+package pl.agawrysiuk.camunda.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

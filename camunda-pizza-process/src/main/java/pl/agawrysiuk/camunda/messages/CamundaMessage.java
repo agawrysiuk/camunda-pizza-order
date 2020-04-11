@@ -1,7 +1,7 @@
 package pl.agawrysiuk.camunda.messages;
 
 import lombok.*;
-import pl.agawrysiuk.camunda.dto.CamundaVariables;
+import pl.agawrysiuk.camunda.model.CamundaVariables;
 
 @Getter
 @Setter

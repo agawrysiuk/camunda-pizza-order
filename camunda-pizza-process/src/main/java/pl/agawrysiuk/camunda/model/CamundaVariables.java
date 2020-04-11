@@ -1,4 +1,4 @@
-package pl.agawrysiuk.camunda.dto;
+package pl.agawrysiuk.camunda.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +14,7 @@ import pl.agawrysiuk.model.Pizza;
 public class CamundaVariables {
 
     private String processId;
+    private String stepId;
     private Pizza pizza = new Pizza();
     private DeliveryAddress deliveryAddress = new DeliveryAddress();
     private String additions;

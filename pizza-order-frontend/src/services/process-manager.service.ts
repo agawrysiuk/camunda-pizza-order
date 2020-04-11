@@ -25,6 +25,7 @@ export class ProcessManagerService {
   }
 
   public finishStep(): void {
+    this.data.variables.stepId = this.stepId;
     this.http.post
     (environment.backendUrl + '/finish-step?processId=' + this.data.variables.processId,
       this.data.variables)

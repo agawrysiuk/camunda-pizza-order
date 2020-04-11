@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.agawrysiuk.camunda.dto.CamundaVariables;
 import pl.agawrysiuk.camunda.messages.StepMessage;
+import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.camunda.process.ProcessManager;
 
 @Slf4j

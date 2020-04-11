@@ -6,8 +6,8 @@ import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.exception.NullValueException;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.springframework.stereotype.Component;
-import pl.agawrysiuk.camunda.dto.CamundaVariables;
 import pl.agawrysiuk.camunda.messages.StepMessage;
+import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.utils.CamundaVariablesConverter;
 
 import java.util.Map;
@@ -29,7 +29,7 @@ public class ProcessManager {
     }
 
     public void finishStep(String processId, CamundaVariables variables) {
-        processFacade.finishStep(processId);
+        processFacade.finishStep(processId, variables);
     }
 
     public StepMessage getStepMessage(String processId) {
@@ -39,6 +39,7 @@ public class ProcessManager {
             return new StepMessage();
         } catch (NullValueException e) {
             log.info("Got request ID with invalid processId = {}", processId);
+            // todo add a builder for the incorrect step message
         }
         return null;
     }

@@ -111,7 +111,7 @@
                     <classes>
                         <class>pl.agawrysiuk.model.DeliveryAddress</class>
                         <class>pl.agawrysiuk.model.Pizza</class>
-                        <class>pl.agawrysiuk.camunda.dto.CamundaVariables</class>
+                        <class>pl.agawrysiuk.camunda.model.CamundaVariables</class>
                         <class>pl.agawrysiuk.camunda.messages.CamundaMessage</class>
                         <class>pl.agawrysiuk.camunda.messages.StepMessage</class>
                         <class>pl.agawrysiuk.enums.StepReplyMessage</class>
