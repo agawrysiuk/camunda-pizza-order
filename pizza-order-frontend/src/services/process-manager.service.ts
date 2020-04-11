@@ -25,7 +25,10 @@ export class ProcessManagerService {
   }
 
   public finishStep(): void {
-    this.http.get(environment.backendUrl + '/finish-step?processId=' + this.data.variables.processId).subscribe();
+    this.http.post
+    (environment.backendUrl + '/finish-step?processId=' + this.data.variables.processId,
+      this.data.variables)
+      .subscribe();
   }
 
   public emitNewStep(stepId: string) {

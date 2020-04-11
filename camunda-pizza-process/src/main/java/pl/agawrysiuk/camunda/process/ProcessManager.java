@@ -28,7 +28,7 @@ public class ProcessManager {
         return variables;
     }
 
-    public void finishStep(String processId) {
+    public void finishStep(String processId, CamundaVariables variables) {
         processFacade.finishStep(processId);
     }
 
