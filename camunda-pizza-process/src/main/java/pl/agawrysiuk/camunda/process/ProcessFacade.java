@@ -1,5 +1,6 @@
 package pl.agawrysiuk.camunda.process;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.BpmnError;
@@ -8,6 +9,7 @@ import pl.agawrysiuk.camunda.feign.CamundaClient;
 import pl.agawrysiuk.camunda.messages.VariablesUpdateMessage;
 import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.camunda.model.Task;
+import pl.agawrysiuk.utils.UpdateMessageConverter;
 
 import java.util.List;
 
@@ -22,7 +24,8 @@ public class ProcessFacade {
         List<Task> taskList = camundaClient.getActiveTasks(processId);
         boolean taskListResult = confirmListSizeOne(taskList);
         if (taskListResult) {
-//            updateVariables(processId, variables);
+            //todo fix variables update
+            updateVariables(processId, variables);
             completeTask(taskList.get(0));
         } else {
             throwCompleteTaskError(processId);
@@ -35,7 +38,12 @@ public class ProcessFacade {
 
     private void updateVariables(String processId, CamundaVariables variables) {
         log.info("Updating variables for the process id {}", processId);
-        camundaClient.updateProcessVariables(processId, new VariablesUpdateMessage(variables));
+        VariablesUpdateMessage message = new VariablesUpdateMessage(variables);
+        try {
+            camundaClient.updateProcessVariables(processId, UpdateMessageConverter.convertToJson(message));
+        } catch (JsonProcessingException e) {
+            throwCompleteTaskError(processId);
+        }
     }
 
     private void completeTask(Task task) {
@@ -44,7 +52,7 @@ public class ProcessFacade {
     }
 
     private void throwCompleteTaskError(String processId) {
-        //todo add enums and error builder
+        //todo add enums and error builder and update values error
         StringBuilder sb = new StringBuilder()
                 .append("Too many instances of processId ")
                 .append(processId)

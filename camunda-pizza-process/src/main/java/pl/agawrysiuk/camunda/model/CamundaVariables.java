@@ -12,7 +12,6 @@ import pl.agawrysiuk.model.Pizza;
 @Getter
 @Setter
 public class CamundaVariables {
-
     private String processId;
     private String stepId;
     private Pizza pizza = new Pizza();
