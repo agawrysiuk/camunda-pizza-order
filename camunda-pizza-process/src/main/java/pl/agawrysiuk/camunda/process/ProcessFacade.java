@@ -1,15 +1,14 @@
 package pl.agawrysiuk.camunda.process;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.delegate.BpmnError;
 import org.springframework.stereotype.Component;
 import pl.agawrysiuk.camunda.feign.CamundaClient;
-import pl.agawrysiuk.camunda.messages.VariablesUpdateMessage;
 import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.camunda.model.Task;
-import pl.agawrysiuk.utils.UpdateMessageConverter;
+import pl.agawrysiuk.utils.CamundaVariablesConverter;
 
 import java.util.List;
 
@@ -19,6 +18,7 @@ import java.util.List;
 public class ProcessFacade {
 
     private final CamundaClient camundaClient;
+    private final RuntimeService runtimeService;
 
     public void finishStep(String processId, CamundaVariables variables) {
         List<Task> taskList = camundaClient.getActiveTasks(processId);
@@ -31,19 +31,12 @@ public class ProcessFacade {
         }
     }
 
-    private boolean confirmListSizeOne(List<Task> taskList) {
-        return taskList.size() == 1;
+    private void updateVariables(String processId, CamundaVariables variables) {
+        runtimeService.setVariables(processId, CamundaVariablesConverter.convertToMap(variables));
     }
 
-    private void updateVariables(String processId, CamundaVariables variables) {
-        log.info("Updating variables for the process id {}", processId);
-        VariablesUpdateMessage message = new VariablesUpdateMessage(variables);
-        try {
-            log.info(UpdateMessageConverter.convertToJson(message));
-            camundaClient.updateProcessVariables(processId, UpdateMessageConverter.convertToJson(message));
-        } catch (JsonProcessingException e) {
-            throwCompleteTaskError(processId);
-        }
+    private boolean confirmListSizeOne(List<Task> taskList) {
+        return taskList.size() == 1;
     }
 
     private void completeTask(Task task) {
