@@ -11,10 +11,15 @@ import pl.agawrysiuk.model.Pizza;
 @NoArgsConstructor
 @Getter
 @Setter
+//@JsonSerialize(using = UpdateMessageSerializer.class)
 public class CamundaVariables {
     private String processId;
+//    @JsonSerialize(using = UpdateMessageSerializer.class)
     private String stepId;
+//    @JsonSerialize(using = UpdateMessageSerializer.class)
     private Pizza pizza = new Pizza();
+//    @JsonSerialize(using = UpdateMessageSerializer.class)
     private DeliveryAddress deliveryAddress = new DeliveryAddress();
+//    @JsonSerialize(using = UpdateMessageSerializer.class)
     private String additions;
 }

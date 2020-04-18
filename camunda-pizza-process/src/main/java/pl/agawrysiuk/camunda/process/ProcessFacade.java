@@ -24,7 +24,6 @@ public class ProcessFacade {
         List<Task> taskList = camundaClient.getActiveTasks(processId);
         boolean taskListResult = confirmListSizeOne(taskList);
         if (taskListResult) {
-            //todo fix variables update
             updateVariables(processId, variables);
             completeTask(taskList.get(0));
         } else {
@@ -40,6 +39,7 @@ public class ProcessFacade {
         log.info("Updating variables for the process id {}", processId);
         VariablesUpdateMessage message = new VariablesUpdateMessage(variables);
         try {
+            log.info(UpdateMessageConverter.convertToJson(message));
             camundaClient.updateProcessVariables(processId, UpdateMessageConverter.convertToJson(message));
         } catch (JsonProcessingException e) {
             throwCompleteTaskError(processId);

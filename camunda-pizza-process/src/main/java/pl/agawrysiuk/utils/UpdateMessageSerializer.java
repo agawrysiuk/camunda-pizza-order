@@ -3,19 +3,24 @@ package pl.agawrysiuk.utils;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import lombok.RequiredArgsConstructor;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import java.io.IOException;
 
-@RequiredArgsConstructor
-public class UpdateMessageSerializer extends JsonSerializer<Object> {
+public class UpdateMessageSerializer extends StdSerializer<Object> {
+
+    private final JsonSerializer<Object> defaultSerializer;
+
+    public UpdateMessageSerializer(JsonSerializer<Object> defaultSerializer) {
+        super(Object.class);
+        this.defaultSerializer = defaultSerializer;
+    }
 
     @Override
     public void serialize(Object value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-        if(value != null && value instanceof String) {
-            gen.writeRawValue("{\"value\":\""+ value +"\"}");
-        } else {
-            gen.writeRawValue("{\"value\":"+ value +"}");
-        }
+        gen.writeStartObject();
+        gen.writeFieldName("value");
+        defaultSerializer.serialize(value, gen, serializers);
+        gen.writeEndObject();
     }
 }

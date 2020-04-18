@@ -17,4 +17,5 @@ public class DeliveryAddress {
     private String suite;
     private String city;
     private String zipCode;
+    private String country = "POLAND";
 }

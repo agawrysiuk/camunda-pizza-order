@@ -3,7 +3,7 @@ package pl.agawrysiuk.delegates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import pl.agawrysiuk.delegates.servicetasks.ChangeStepListener;
+import pl.agawrysiuk.delegates.listeners.ChangeStepListener;
 import pl.agawrysiuk.delegates.servicetasks.CheckDataDelegate;
 import pl.agawrysiuk.delegates.servicetasks.CreateVariablesDelegate;
 import pl.agawrysiuk.delegates.servicetasks.PhoneAnswerDelegate;

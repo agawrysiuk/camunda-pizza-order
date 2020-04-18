@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import static java.lang.Boolean.FALSE;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -14,4 +16,5 @@ public class Pizza {
     private String photo;
     private String components;
     private Double price;
+    private Boolean extras = FALSE;
 }

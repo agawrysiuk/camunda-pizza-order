@@ -1,4 +1,4 @@
-package pl.agawrysiuk.delegates.servicetasks;
+package pl.agawrysiuk.delegates.listeners;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-11 12:32:41.
+// Generated using typescript-generator version 2.21.588 on 2020-04-18 15:42:06.
 
 export interface DeliveryAddress {
     name: string;
@@ -10,6 +10,7 @@ export interface DeliveryAddress {
     suite: string;
     city: string;
     zipCode: string;
+    country: string;
 }
 
 export interface Pizza {
@@ -17,6 +18,7 @@ export interface Pizza {
     photo: string;
     components: string;
     price: number;
+    extras: boolean;
 }
 
 export interface CamundaVariables {
