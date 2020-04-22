@@ -45,7 +45,6 @@ public class ProcessFacade {
     }
 
     private void throwCompleteTaskError(String processId) {
-        //todo add enums and error builder and update values error
         StringBuilder sb = new StringBuilder()
                 .append("Too many instances of processId ")
                 .append(processId)

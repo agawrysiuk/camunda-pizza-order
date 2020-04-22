@@ -39,7 +39,6 @@ public class ProcessManager {
             return new StepMessage();
         } catch (NullValueException e) {
             log.info("Got request ID with invalid processId = {}", processId);
-            // todo add a builder for the incorrect step message
         }
         return null;
     }
