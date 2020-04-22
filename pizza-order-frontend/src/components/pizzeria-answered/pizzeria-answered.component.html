@@ -5,9 +5,9 @@
         <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
         <p class="tile-hidden tile-text-start-animation">Welcome to our pizzeria! This is Joanna, how can I help you today?</p>
       </div>
-      <div *ngFor="let answer of answersMap | keyvalue">
+      <div *ngFor="let answer of conversationMap | keyvalue">
         <div id="{{answer.key}}-answer" class="conversation-tile tile-hidden bottom-zero tile-answer-start-animation">
-          <p id="{{answer.key}}-answer-paragraph" class="your-answer-option" (click)="chooseAction(answer.key)">{{answer.value}}</p>
+          <p id="{{answer.key}}-answer-paragraph" class="your-answer-option" (click)="chooseAction(answer.key)">{{answer.value.choice}}</p>
         </div>
       </div>
       <div class="conversation-tile">
@@ -34,7 +34,7 @@
       </div>
       <div *ngIf="delivery" class="conversation-tile">
         <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
-        <p class="tile-hidden tile-text-start-animation">What address we should deliver to?</p>
+        <p class="tile-hidden tile-text-start-animation">What address should we deliver to?</p>
       </div>
     </div>
   </div>

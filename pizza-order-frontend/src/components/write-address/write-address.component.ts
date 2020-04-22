@@ -14,8 +14,9 @@ import {InputMaskEnum, InputMaskService} from '../../services/input-mask.service
 })
 export class WriteAddressComponent implements OnInit {
 
-  public address: DeliveryAddress;
-  public inputMaskEnum: typeof InputMaskEnum = InputMaskEnum;
+  address: DeliveryAddress;
+  inputMaskEnum: typeof InputMaskEnum = InputMaskEnum;
+  validAddress: boolean = false;
 
   constructor(private data: DataService,
               private router: Router,
@@ -31,7 +32,7 @@ export class WriteAddressComponent implements OnInit {
 
   addAddress() {
     this.data.variables.deliveryAddress = this.address;
-    document.getElementById('address-tab').className = 'calling-tab slide-out';
+    this.validAddress = true;
     setTimeout(() => {
         this.manager.finishStep();
       }

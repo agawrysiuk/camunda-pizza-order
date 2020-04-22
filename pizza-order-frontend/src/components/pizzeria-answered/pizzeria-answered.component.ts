@@ -4,7 +4,7 @@ import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
 import {EmitterMessages} from '../../model/emitter-messages';
 import {ViewResolverService} from '../../services/view-resolver.service';
-import {ProcessManagerService} from "../../services/process-manager.service";
+import {ProcessManagerService} from '../../services/process-manager.service';
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -13,22 +13,17 @@ import {ProcessManagerService} from "../../services/process-manager.service";
 })
 export class PizzeriaAnsweredComponent implements OnInit {
 
-  public answersMap: { [index: number]: string } = {
-    1: 'Hello, I\'d like to order some pizza.',
-    2: 'Oh, sorry, wrong number!',
-    3: '... (uncomfortable silence)'
-  };
-
-  public reactionMap: { [index: number]: string } = {
-    1: 'Superb choice! Please look at the delicious pizzas we offer.',
-    2: 'No problem. Have a nice day!',
-    3: 'Omg, I\'m calling the police!'
+  public conversationMap: { [index: number]: {choice: string, reaction: string}} = {
+    1: {choice: 'Hello, I\'d like to order some pizza.', reaction: 'Superb choice! Please look at the delicious pizzas we offer.'},
+    2: {choice: 'Oh, sorry, wrong number!', reaction: 'No problem. Have a nice day!'},
+    3: {choice: '... (uncomfortable silence)', reaction: 'Omg, I\'m calling the police!'}
   };
 
   public additionsMap: { [index: number]: string } = {
-    1: 'Extra crust',
+    1: 'Thick crust',
     2: 'Extra cheese',
-    3: 'Additional ham'
+    3: 'Additional ham',
+    4: 'Nah, I\'m good, thanks',
   };
 
   public pickAdditions = false;
@@ -54,8 +49,9 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   ngOnInit() {}
 
-  chooseAction(key: string) {
-    for (const mapKey in this.answersMap) {
+  chooseAction(key: number) {
+    for (const mapKey in this.conversationMap) {
+      // @ts-ignore
       if (mapKey !== key) {
         document.getElementById(mapKey + '-answer').className = 'display-none';
       } else {
@@ -64,12 +60,18 @@ export class PizzeriaAnsweredComponent implements OnInit {
       }
     }
     this.createResponse(key);
-    this.showPopupWithPizzas();
+    if (key !== 1) {
+      setTimeout(() => {
+        this.router.navigate(['']);
+      }, 2500);
+    } else {
+      this.showPopupWithPizzas();
+    }
   }
 
-  private createResponse(key: string) {
+  private createResponse(key: number) {
     document.getElementById('reaction-img').className = 'tile-hidden tile-img-start-animation';
-    document.getElementById('reaction-text').innerText = this.reactionMap[key];
+    document.getElementById('reaction-text').innerText = this.conversationMap[key].reaction;
     document.getElementById('reaction-text').className = 'tile-hidden tile-text-start-animation';
   }
 
@@ -98,17 +100,21 @@ export class PizzeriaAnsweredComponent implements OnInit {
         document.getElementById(mapKey + '-addition-paragraph').className = 'your-answer';
       }
     }
+    this.moveForward();
+  }
+
+  private moveForward() {
     setTimeout(() => {
-        this.delivery = true;
-        setTimeout(() => {
-            document.getElementById('calling-tab').className += ' calling-tab-end-animation';
-            setTimeout(() => {
-                this.manager.finishStep();
-              }
-              , 500);
-          }
-          , 2000);
-      }
-      , 1000);
+      this.delivery = true;
+      setTimeout(() => {
+          document.getElementById('calling-tab').className += ' calling-tab-end-animation';
+          setTimeout(() => {
+              this.manager.finishStep();
+            }
+            , 500);
+        }
+        , 2000);
+    }
+    , 1000);
   }
 }
