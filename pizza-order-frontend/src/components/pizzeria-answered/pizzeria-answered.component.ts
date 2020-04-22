@@ -60,7 +60,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
       }
     }
     this.createResponse(key);
-    if (key !== 1) {
+    if (key != 1) {
       setTimeout(() => {
         this.router.navigate(['']);
       }, 2500);
