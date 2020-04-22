@@ -6,14 +6,14 @@
 }
 
 .slide-in {
-  animation-name: slideInAnimation;
+  animation-name: slideAnimation;
   animation-duration: 500ms;
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
-@keyframes slideInAnimation {
+@keyframes slideAnimation {
   0% {
     transform: translateX(2000px);
   }

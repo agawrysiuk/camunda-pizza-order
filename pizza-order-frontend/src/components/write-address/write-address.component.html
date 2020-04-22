@@ -12,7 +12,7 @@
         </div>
 
         <input type="text" class="form-control" id="phone"
-               required
+               required [textMask]="getMask(inputMaskEnum.PHONE)"
                [(ngModel)]="address.phone" name="phone"
                #phone="ngModel" placeholder="Phone"
                [ngClass]="{'form-control-after' : phone.valid && phone.touched}">
@@ -57,7 +57,7 @@
         </div>
 
         <input type="text" class="form-control" id="zipCode"
-               required
+               required [textMask]="getMask(inputMaskEnum.ZIPCODE)"
                [(ngModel)]="address.zipCode" name="zipCode"
                #zipCode="ngModel" placeholder="Zip Code"
                [ngClass]="{'form-control-after' : zipCode.valid && zipCode.touched}">

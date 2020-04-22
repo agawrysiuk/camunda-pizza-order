@@ -3,8 +3,9 @@ import {NgForm} from '@angular/forms';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
 import {DeliveryAddress} from '../../model/generated-dto';
-import {ViewResolverService} from "../../services/view-resolver.service";
-import {ProcessManagerService} from "../../services/process-manager.service";
+import {ViewResolverService} from '../../services/view-resolver.service';
+import {ProcessManagerService} from '../../services/process-manager.service';
+import {InputMaskEnum, InputMaskService} from '../../services/input-mask.service';
 
 @Component({
   selector: 'app-write-address',
@@ -14,11 +15,13 @@ import {ProcessManagerService} from "../../services/process-manager.service";
 export class WriteAddressComponent implements OnInit {
 
   public address: DeliveryAddress;
+  public inputMaskEnum: typeof InputMaskEnum = InputMaskEnum;
 
   constructor(private data: DataService,
               private router: Router,
               private viewResolver: ViewResolverService,
-              private manager: ProcessManagerService) {
+              private manager: ProcessManagerService,
+              private inputMaskService: InputMaskService) {
     this.viewResolver.checkStep();
     this.address = this.data.variables.deliveryAddress;
   }
@@ -37,12 +40,16 @@ export class WriteAddressComponent implements OnInit {
 
   mockAddress(addressForm: NgForm) {
     this.address.name = 'Krzysztof Krawczyk';
-    this.address.phone = '000-000-000';
+    this.address.phone = '123-123-123';
     this.address.street = 'ul. Jasna';
     this.address.building = '52';
     this.address.suite = '9';
     this.address.city = 'Warszawa';
     this.address.zipCode = '01-469';
     addressForm.form.markAllAsTouched();
+  }
+
+  public getMask(inputEnum: InputMaskEnum): any {
+    return this.inputMaskService.getMask(inputEnum);
   }
 }

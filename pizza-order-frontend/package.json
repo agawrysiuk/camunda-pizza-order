@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@stomp/stompjs": "^5.4.4",
+    "angular2-text-mask": "^9.0.0",
     "rxjs": "~6.4.0",
     "sockjs-client": "^1.4.0",
     "tslib": "^1.10.0",
