@@ -7,6 +7,9 @@ export const environment = {
   get backendUrl() {
     return 'http://localhost:8080';
   },
+  get databaseUrl() {
+    return 'http://localhost:8090';
+  },
   socketUrl: '/socket'
 };
 

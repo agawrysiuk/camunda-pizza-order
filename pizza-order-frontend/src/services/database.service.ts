@@ -11,7 +11,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) { }
 
   downloadConversations(): Promise<Conversation[]> {
-    return this.http.get(environment.backendUrl + '/get-conversations')
+    return this.http.get(environment.databaseUrl + '/conversations')
       .toPromise() as Promise<Conversation[]>;
   }
 }

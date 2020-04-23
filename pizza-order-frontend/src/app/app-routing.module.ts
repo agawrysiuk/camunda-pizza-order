@@ -5,12 +5,13 @@ import {PhoneCallingComponent} from '../components/phone-calling/phone-calling.c
 import {PizzeriaAnsweredComponent} from '../components/pizzeria-answered/pizzeria-answered.component';
 import {WriteAddressComponent} from '../components/write-address/write-address.component';
 import {ThankYouComponent} from '../components/thank-you/thank-you.component';
+import {ConversationResolve} from '../services/resolvers/conversation-resolve';
 
 const routes: Routes = [
   { path: '', component: StartProcessComponent },
   { path: 'start-process', component: StartProcessComponent },
   { path: 'phone-calling', component: PhoneCallingComponent },
-  { path: 'pizzeria-answered', component: PizzeriaAnsweredComponent },
+  { path: 'pizzeria-answered', component: PizzeriaAnsweredComponent, resolve: {conversations: ConversationResolve} },
   // { path: 'pizzeria-answered', redirectTo: 'write-address' },
   { path: 'write-address', component: WriteAddressComponent },
   { path: 'thank-you', component: ThankYouComponent }

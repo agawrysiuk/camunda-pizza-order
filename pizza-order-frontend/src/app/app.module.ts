@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ThankYouComponent} from '../components/thank-you/thank-you.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TextMaskModule} from 'angular2-text-mask';
+import {ConversationResolve} from '../services/resolvers/conversation-resolve';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {TextMaskModule} from 'angular2-text-mask';
     HttpClientModule,
     TextMaskModule
   ],
-  providers: [],
+  providers: [ConversationResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
 import {EmitterMessages} from '../../model/emitter-messages';
@@ -13,11 +13,7 @@ import {ProcessManagerService} from '../../services/process-manager.service';
 })
 export class PizzeriaAnsweredComponent implements OnInit {
 
-  public conversationMap: { [index: number]: {choice: string, reaction: string}} = {
-    1: {choice: 'Hello, I\'d like to order some pizza.', reaction: 'Superb choice! Please look at the delicious pizzas we offer.'},
-    2: {choice: 'Oh, sorry, wrong number!', reaction: 'No problem. Have a nice day!'},
-    3: {choice: '... (uncomfortable silence)', reaction: 'Omg, I\'m calling the police!'}
-  };
+  public conversationMap: { [index: number]: {choice: string, reaction: string}};
 
   public additionsMap: { [index: number]: string } = {
     1: 'Thick crust',
@@ -36,8 +32,10 @@ export class PizzeriaAnsweredComponent implements OnInit {
               private popupService: PopupService,
               public data: DataService,
               private viewResolver: ViewResolverService,
-              private manager: ProcessManagerService) {
+              private manager: ProcessManagerService,
+              private route: ActivatedRoute) {
     this.viewResolver.checkStep();
+    this.conversationMap = this.route.snapshot.data['conversations'];
     popupService.changeEmitted$.subscribe(
       text => {
         if (text === EmitterMessages.PIZZA_PICKED) {
