@@ -1,5 +1,6 @@
 # IDEs and editors
 .idea
+.idea/
 */.idea
 .project
 .classpath
@@ -7,6 +8,8 @@
 *.launch
 .settings/
 *.sublime-workspace
+*idea/compiler.xml
+*idea/misc.xml
 
 # IDE - VSCode
 .vscode/*
@@ -36,23 +39,6 @@ Thumbs.db
 chrome-profiler-events*.json
 speed-measure-plugin*.json
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
 # misc
 /.sass-cache
 /connect.lock
@@ -68,3 +54,4 @@ testem.log
 Thumbs.db
 
 /camunda-pizza-process/target/
+/.idea/

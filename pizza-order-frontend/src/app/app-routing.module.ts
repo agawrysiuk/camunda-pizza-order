@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'start-process', component: StartProcessComponent },
   { path: 'phone-calling', component: PhoneCallingComponent },
   { path: 'pizzeria-answered', component: PizzeriaAnsweredComponent },
+  // { path: 'pizzeria-answered', redirectTo: 'write-address' },
   { path: 'write-address', component: WriteAddressComponent },
   { path: 'thank-you', component: ThankYouComponent }
 ];
