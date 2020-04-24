@@ -65,6 +65,7 @@
 					<classes>
 						<class>pl.agawrysiuk.pizzashareddtos.model.Conversation</class>
 						<class>pl.agawrysiuk.pizzashareddtos.dtos.DeliveryAddress</class>
+						<class>pl.agawrysiuk.pizzashareddtos.dtos.PizzaDataDto</class>
 						<class>pl.agawrysiuk.pizzashareddtos.model.Pizza</class>
 						<class>pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables</class>
 						<class>pl.agawrysiuk.pizzashareddtos.camunda.dtos.Task</class>

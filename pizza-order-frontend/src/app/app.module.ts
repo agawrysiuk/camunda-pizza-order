@@ -14,7 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ThankYouComponent} from '../components/thank-you/thank-you.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TextMaskModule} from 'angular2-text-mask';
-import {ConversationResolve} from '../services/resolvers/conversation-resolve';
+import {PizzaDataDtoResolve} from '../services/resolvers/pizza-data-dto-resolve';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import {ConversationResolve} from '../services/resolvers/conversation-resolve';
     HttpClientModule,
     TextMaskModule
   ],
-  providers: [ConversationResolve],
+  providers: [PizzaDataDtoResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

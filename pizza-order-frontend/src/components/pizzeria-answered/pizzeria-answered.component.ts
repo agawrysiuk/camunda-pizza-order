@@ -5,6 +5,7 @@ import {DataService} from '../../services/data.service';
 import {EmitterMessages} from '../../model/emitter-messages';
 import {ViewResolverService} from '../../services/view-resolver.service';
 import {ProcessManagerService} from '../../services/process-manager.service';
+import {Additions} from '../../model/generated-dto';
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -15,12 +16,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   public conversationMap: { [index: number]: {choice: string, reaction: string}};
 
-  public additionsMap: { [index: number]: string } = {
-    1: 'Thick crust',
-    2: 'Extra cheese',
-    3: 'Additional ham',
-    4: 'Nah, I\'m good, thanks',
-  };
+  public additions: Additions[];
 
   public pickAdditions = false;
   public additionsPicked = false;
@@ -35,7 +31,8 @@ export class PizzeriaAnsweredComponent implements OnInit {
               private manager: ProcessManagerService,
               private route: ActivatedRoute) {
     this.viewResolver.checkStep();
-    this.conversationMap = this.route.snapshot.data['conversations'];
+    this.conversationMap = this.data.conversations;
+    this.additions = this.data.additions;
     popupService.changeEmitted$.subscribe(
       text => {
         if (text === EmitterMessages.PIZZA_PICKED) {
@@ -87,15 +84,15 @@ export class PizzeriaAnsweredComponent implements OnInit {
     this.pickAdditions = true;
   }
 
-  chooseAddition(key: string) {
-    this.data.variables.additions = this.additionsMap[key];
+  chooseAddition(pickedAddition: Additions) {
+    this.data.variables.additions = pickedAddition;
     this.additionsPicked = true;
-    for (const mapKey in this.additionsMap) {
-      if (mapKey !== key) {
-        document.getElementById(mapKey + '-addition').className = 'display-none';
+    for (let addition of this.additions) {
+      if (addition !== pickedAddition) {
+        document.getElementById(addition.id + '-addition').className = 'display-none';
       } else {
-        document.getElementById(mapKey + '-addition').className = 'conversation-tile';
-        document.getElementById(mapKey + '-addition-paragraph').className = 'your-answer';
+        document.getElementById(addition.id + '-addition').className = 'conversation-tile';
+        document.getElementById(addition.id + '-addition-paragraph').className = 'your-answer';
       }
     }
     this.moveForward();

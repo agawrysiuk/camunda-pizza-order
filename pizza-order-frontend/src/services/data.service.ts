@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CamundaVariables, Conversation} from '../model/generated-dto';
+import {Additions, CamundaVariables, Conversation, Pizza, PizzaDataDto} from '../model/generated-dto';
 import {DatabaseService} from './database.service';
 
 @Injectable({
@@ -8,7 +8,10 @@ import {DatabaseService} from './database.service';
 export class DataService {
 
   public variables: CamundaVariables;
-  private conversations: { [index: number]: {choice: string, reaction: string}};
+  private pizzaDataDto: PizzaDataDto;
+  public conversations: { [index: number]: {choice: string, reaction: string}};
+  public pizzas: Pizza[];
+  public additions: Additions[];
 
   constructor(private database: DatabaseService) {
 
@@ -19,11 +22,15 @@ export class DataService {
     return new Promise<CamundaVariables>(resolve => resolve(this.variables));
   }
 
-  getConversation(): Promise<{ [index: number]: {choice: string, reaction: string}}> {
+  getPizzaData(): Promise<PizzaDataDto> {
     if (!this.conversations) {
-      this.database.downloadConversations().then(importedValue => this.conversations = this.convertConversation(importedValue));
+      this.database.downloadConversations().then(importedValue => {
+        this.conversations = this.convertConversation(importedValue.conversations);
+        this.pizzas = importedValue.pizzas;
+        this.additions = importedValue.additions;
+      });
     }
-    return new Promise<{[index: number]: {choice: string, reaction: string}}>(resolve => resolve(this.conversations));
+    return new Promise<PizzaDataDto>(resolve => resolve(this.pizzaDataDto));
   }
 
   private convertConversation(importedValue: Conversation[]) {

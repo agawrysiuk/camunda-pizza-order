@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
-import {Conversation} from '../model/generated-dto';
+import {PizzaDataDto} from '../model/generated-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class DatabaseService {
 
   constructor(private http: HttpClient) { }
 
-  downloadConversations(): Promise<Conversation[]> {
+  downloadConversations(): Promise<PizzaDataDto> {
     return this.http.get(environment.databaseUrl + '/conversations')
-      .toPromise() as Promise<Conversation[]>;
+      .toPromise() as Promise<PizzaDataDto>;
   }
 }
