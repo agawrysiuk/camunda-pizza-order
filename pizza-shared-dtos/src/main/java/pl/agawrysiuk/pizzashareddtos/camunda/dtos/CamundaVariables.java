@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.agawrysiuk.pizzashareddtos.model.DeliveryAddress;
+import pl.agawrysiuk.pizzashareddtos.dtos.DeliveryAddress;
 import pl.agawrysiuk.pizzashareddtos.model.Pizza;
 
 @AllArgsConstructor

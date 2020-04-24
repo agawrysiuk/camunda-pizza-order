@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-24 20:06:50.
+// Generated using typescript-generator version 2.21.588 on 2020-04-24 21:28:58.
 
 export interface Conversation {
     id: number;
@@ -23,8 +23,7 @@ export interface Pizza {
     name: string;
     photo: string;
     components: string;
-    price: number;
-    extras: boolean;
+    price: string;
 }
 
 export interface CamundaVariables {

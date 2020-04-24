@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
 import {Pizza} from '../../model/generated-dto';
-import {EmitterMessages} from "../../model/emitter-messages";
+import {EmitterMessages} from '../../model/emitter-messages';
 
 @Component({
   selector: 'app-pizza-tile',

@@ -1,4 +1,4 @@
-package pl.agawrysiuk.pizzashareddtos.model;
+package pl.agawrysiuk.pizzashareddtos.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
