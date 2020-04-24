@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {CamundaVariables} from '../model/generated-dto';
+import {CamundaVariables, Conversation} from '../model/generated-dto';
 import {DatabaseService} from './database.service';
-import {Conversation} from '../model/database-dto';
 
 @Injectable({
   providedIn: 'root'
