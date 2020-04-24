@@ -5,9 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.agawrysiuk.pizzadatabase.service.DatabaseService;
-import pl.agawrysiuk.pizzashareddtos.model.Conversation;
-
-import java.util.List;
+import pl.agawrysiuk.pizzashareddtos.dtos.PizzaDataDto;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,9 +14,9 @@ public class DatabaseController {
 
     private final DatabaseService service;
 
-    @GetMapping("/conversations")
-    public List<Conversation> getConversation() {
-        return service.findAllConversations();
+    @GetMapping("/data")
+    public PizzaDataDto getConversation() {
+        return service.getPizzaDataDto();
     }
 
 }

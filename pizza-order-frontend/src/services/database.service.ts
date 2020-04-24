@@ -10,8 +10,8 @@ export class DatabaseService {
 
   constructor(private http: HttpClient) { }
 
-  downloadConversations(): Promise<PizzaDataDto> {
-    return this.http.get(environment.databaseUrl + '/conversations')
+  downloadPizzaData(): Promise<PizzaDataDto> {
+    return this.http.get(environment.databaseUrl + '/data')
       .toPromise() as Promise<PizzaDataDto>;
   }
 }
