@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class CamundaPizzaProcess {
+public class PizzaCamundaProcess {
     public static void main(String... args) {
-        SpringApplication.run(CamundaPizzaProcess.class, args);
+        SpringApplication.run(PizzaCamundaProcess.class, args);
     }
 }

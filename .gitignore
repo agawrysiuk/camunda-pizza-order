@@ -53,5 +53,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/camunda-pizza-process/target/
+/pizza-camunda-process/target/
 /.idea/

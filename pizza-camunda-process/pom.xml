@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.agawrysiuk</groupId>
-    <artifactId>camunda-pizza-process</artifactId>
+    <artifactId>pizza-camunda-process</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
