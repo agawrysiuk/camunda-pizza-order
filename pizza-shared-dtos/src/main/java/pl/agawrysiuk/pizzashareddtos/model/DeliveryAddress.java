@@ -1,4 +1,4 @@
-package pl.agawrysiuk.model;
+package pl.agawrysiuk.pizzashareddtos.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.agawrysiuk.pizzadatabase.model.Conversation;
 import pl.agawrysiuk.pizzadatabase.service.DatabaseService;
+import pl.agawrysiuk.pizzashareddtos.model.Conversation;
 
 import java.util.List;
 

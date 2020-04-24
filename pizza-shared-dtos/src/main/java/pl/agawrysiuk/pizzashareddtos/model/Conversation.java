@@ -1,4 +1,4 @@
-package pl.agawrysiuk.pizzadatabase.model;
+package pl.agawrysiuk.pizzashareddtos.model;
 
 import lombok.Getter;
 

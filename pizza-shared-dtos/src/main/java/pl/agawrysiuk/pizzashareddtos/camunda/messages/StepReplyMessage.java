@@ -1,4 +1,4 @@
-package pl.agawrysiuk.enums;
+package pl.agawrysiuk.pizzashareddtos.camunda.messages;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

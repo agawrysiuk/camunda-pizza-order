@@ -2,7 +2,7 @@ package pl.agawrysiuk.utils;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.agawrysiuk.camunda.model.CamundaVariables;
+import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
 
 import java.util.Map;
 

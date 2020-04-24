@@ -1,11 +1,11 @@
-package pl.agawrysiuk.camunda.model;
+package pl.agawrysiuk.pizzashareddtos.camunda.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.agawrysiuk.model.DeliveryAddress;
-import pl.agawrysiuk.model.Pizza;
+import pl.agawrysiuk.pizzashareddtos.model.DeliveryAddress;
+import pl.agawrysiuk.pizzashareddtos.model.Pizza;
 
 @AllArgsConstructor
 @NoArgsConstructor

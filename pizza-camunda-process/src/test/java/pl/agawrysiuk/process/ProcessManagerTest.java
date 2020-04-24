@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.agawrysiuk.camunda.messages.StepMessage;
-import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.camunda.process.ProcessManager;
+import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
+import pl.agawrysiuk.pizzashareddtos.camunda.messages.StepMessage;
 
 @SpringBootTest
 @Slf4j

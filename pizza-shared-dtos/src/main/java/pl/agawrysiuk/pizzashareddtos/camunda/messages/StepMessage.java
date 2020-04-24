@@ -1,10 +1,9 @@
-package pl.agawrysiuk.camunda.messages;
+package pl.agawrysiuk.pizzashareddtos.camunda.messages;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.agawrysiuk.enums.StepReplyMessage;
 
 @Getter
 @Setter

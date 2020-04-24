@@ -2,8 +2,8 @@ package pl.agawrysiuk.pizzadatabase.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.agawrysiuk.pizzadatabase.model.Conversation;
 import pl.agawrysiuk.pizzadatabase.repository.ConversationRepository;
+import pl.agawrysiuk.pizzashareddtos.model.Conversation;
 
 import java.util.List;
 

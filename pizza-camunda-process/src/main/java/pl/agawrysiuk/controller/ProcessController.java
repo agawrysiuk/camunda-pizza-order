@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import pl.agawrysiuk.camunda.messages.StepMessage;
-import pl.agawrysiuk.camunda.model.CamundaVariables;
 import pl.agawrysiuk.camunda.process.ProcessManager;
+import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
+import pl.agawrysiuk.pizzashareddtos.camunda.messages.StepMessage;
 
 @Slf4j
 @RestController

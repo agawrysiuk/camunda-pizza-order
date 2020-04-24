@@ -1,4 +1,4 @@
-package pl.agawrysiuk.camunda.model;
+package pl.agawrysiuk.pizzashareddtos.camunda.dtos;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
