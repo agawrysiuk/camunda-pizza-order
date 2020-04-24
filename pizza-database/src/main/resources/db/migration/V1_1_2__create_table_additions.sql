@@ -1,4 +1,4 @@
-CREATE TABLE conversation (
+CREATE TABLE additions (
 
     id int PRIMARY KEY,
     addition varchar(250),
