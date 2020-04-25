@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-24 22:16:35.
+// Generated using typescript-generator version 2.21.588 on 2020-04-25 22:14:29.
 
 export interface Conversation {
     id: number;
@@ -23,6 +23,12 @@ export interface PizzaDataDto {
     pizzas: Pizza[];
     conversations: Conversation[];
     additions: Additions[];
+}
+
+export interface LiteralDto {
+    step: string;
+    key: string;
+    message: string;
 }
 
 export interface Pizza {
@@ -81,6 +87,13 @@ export interface Additions {
     id: number;
     addition: string;
     price: string;
+}
+
+export const enum Step {
+    START_PROCESS = "start-process",
+    PIZZERIA_ANSWERED = "pizzeria-answered",
+    WRITE_ADDRESS = "write-address",
+    THANK_YOU = "thank-you",
 }
 
 export const enum StepReplyMessage {
