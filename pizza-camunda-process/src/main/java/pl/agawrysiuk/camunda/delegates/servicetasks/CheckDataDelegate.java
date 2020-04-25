@@ -1,4 +1,4 @@
-package pl.agawrysiuk.delegates.servicetasks;
+package pl.agawrysiuk.camunda.delegates.servicetasks;
 
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;

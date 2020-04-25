@@ -1,4 +1,4 @@
-package pl.agawrysiuk.utils;
+package pl.agawrysiuk.camunda.utils;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

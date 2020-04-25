@@ -23,7 +23,7 @@ export class DataService {
   }
 
   getPizzaData(): Promise<PizzaDataDto> {
-    if (!this.conversations) {
+    if (!this.pizzaDataDto) {
       this.database.downloadPizzaData().then(importedValue => {
         this.conversations = this.convertConversation(importedValue.conversations);
         this.pizzas = importedValue.pizzas;

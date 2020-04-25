@@ -7,7 +7,6 @@ Check out the short view here:
 
 ## To do:
 - Add H2 database with literals to display on the front page
-- Add pizzas to the database, additions too
 - Improve order summary
 - Data validity on the backend
 - Add Loader?

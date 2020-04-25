@@ -6,9 +6,9 @@ import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.exception.NullValueException;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.springframework.stereotype.Component;
+import pl.agawrysiuk.camunda.utils.CamundaVariablesConverter;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
 import pl.agawrysiuk.pizzashareddtos.camunda.messages.StepMessage;
-import pl.agawrysiuk.utils.CamundaVariablesConverter;
 
 import java.util.Map;
 

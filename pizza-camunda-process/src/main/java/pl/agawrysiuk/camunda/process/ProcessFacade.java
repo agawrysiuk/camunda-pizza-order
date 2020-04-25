@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.delegate.BpmnError;
 import org.springframework.stereotype.Component;
-import pl.agawrysiuk.camunda.feign.CamundaClient;
+import pl.agawrysiuk.camunda.utils.CamundaVariablesConverter;
+import pl.agawrysiuk.feign.CamundaClient;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.Task;
-import pl.agawrysiuk.utils.CamundaVariablesConverter;
 
 import java.util.List;
 

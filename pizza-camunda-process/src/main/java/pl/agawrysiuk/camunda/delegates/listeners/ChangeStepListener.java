@@ -1,13 +1,13 @@
-package pl.agawrysiuk.delegates.listeners;
+package pl.agawrysiuk.camunda.delegates.listeners;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.ExecutionListener;
 import org.springframework.web.client.RestTemplate;
+import pl.agawrysiuk.camunda.utils.CamundaVariablesConverter;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
 import pl.agawrysiuk.pizzashareddtos.camunda.messages.CamundaMessage;
-import pl.agawrysiuk.utils.CamundaVariablesConverter;
 
 @Slf4j
 @RequiredArgsConstructor

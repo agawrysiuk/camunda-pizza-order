@@ -1,4 +1,4 @@
-package pl.agawrysiuk.camunda.feign;
+package pl.agawrysiuk.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;

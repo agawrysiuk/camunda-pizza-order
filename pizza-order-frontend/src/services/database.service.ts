@@ -11,7 +11,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) { }
 
   downloadPizzaData(): Promise<PizzaDataDto> {
-    return this.http.get(environment.databaseUrl + '/data')
+    return this.http.get(environment.backendUrl + '/data')
       .toPromise() as Promise<PizzaDataDto>;
   }
 }
