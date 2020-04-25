@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {EmitterMessages} from '../../model/emitter-messages';
 import {ViewResolverService} from '../../services/view-resolver.service';
+import {Step} from "../../model/generated-dto";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-thank-you',
@@ -11,17 +13,20 @@ import {ViewResolverService} from '../../services/view-resolver.service';
 export class ThankYouComponent implements OnInit {
 
   showOrderDialog = false;
+  public literals: {[index: string]: string};
 
   constructor(private popupService: PopupService,
-              private viewResolver: ViewResolverService) {
+              private viewResolver: ViewResolverService,
+              private data: DataService) {
     this.viewResolver.checkStep();
     this.showOrderDialog = true;
+    this.literals = this.data.getLiteralsForStep(Step.THANK_YOU);
     this.popupService.changeEmitted$.subscribe(text => {
       if (text === EmitterMessages.ORDER_APPROVED) {
-        document.getElementById('title-text').innerHTML = 'Thank you!<br />Your order has been <span class="text-orange">approved.</span>';
+        document.getElementById('title-text').innerHTML = this.literals.orderConfirmed;
       }
       if (text === EmitterMessages.ORDER_DECLINED) {
-        document.getElementById('title-text').innerHTML = 'Thank you!<br />Your order has been <span class="text-orange">declined.</span>';
+        document.getElementById('title-text').innerHTML = this.literals.orderCancelled;
       }
       this.showOrderDialog = false;
     });

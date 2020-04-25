@@ -3,7 +3,7 @@
     <div class="conversation-group">
       <div class="conversation-tile">
         <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
-        <p class="tile-hidden tile-text-start-animation">Welcome to our pizzeria! This is Joanna, how can I help you today?</p>
+        <p class="tile-hidden tile-text-start-animation">{{literals.welcomeMessage}}</p>
       </div>
       <div *ngFor="let answer of conversationMap | keyvalue">
         <div id="{{answer.key}}-answer" class="conversation-tile tile-hidden bottom-zero tile-answer-start-animation">
@@ -15,11 +15,11 @@
         <p id="reaction-text" class="tile-hidden"></p>
       </div>
       <div class="conversation-tile tile-hidden tile-answer-start-animation">
-        <p id="your-pick" class="tile-hidden">{{data.variables.pizza?.name}} looks nice.</p>
+        <p id="your-pick" class="tile-hidden">{{data.variables.pizza?.name}}{{literals.pizzaPickedMessage}}</p>
       </div>
       <div class="conversation-tile">
         <img id="picked-img" class="tile-hidden" src="assets/images/waitress.png" alt="waitress">
-        <p id="picked-text" class="tile-hidden">Great! Do you want to pick some extras to your pizza?</p>
+        <p id="picked-text" class="tile-hidden">{{literals.additionMessage}}</p>
       </div>
       <div *ngIf="pickAdditions">
         <div *ngFor="let addition of additions">
@@ -30,11 +30,11 @@
       </div>
       <div *ngIf="additionsPicked" class="conversation-tile">
         <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
-        <p class="tile-hidden tile-text-start-animation">I would choose it too!</p>
+        <p class="tile-hidden tile-text-start-animation">{{data.variables?.additions.id === 0 ? literals.additionNotPickedMessage : literals.additionPickedMessage}}</p>
       </div>
       <div *ngIf="delivery" class="conversation-tile">
         <img class="tile-hidden tile-img-start-animation" src="assets/images/waitress.png" alt="waitress">
-        <p class="tile-hidden tile-text-start-animation">What address should we deliver to?</p>
+        <p class="tile-hidden tile-text-start-animation">{{literals.addressMessage}}</p>
       </div>
     </div>
   </div>

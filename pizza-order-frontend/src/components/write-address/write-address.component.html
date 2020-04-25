@@ -8,7 +8,7 @@
                 [ngClass]="{'form-control-after' : name.valid && name.touched}">
         <div [hidden]="name.valid || !name.touched"
              class="control-alert">
-          Name is required
+          {{literals.nameRequired}}
         </div>
 
         <input type="text" class="form-control" id="phone" pattern="^[1-9]\d{2}-\d{3}-\d{3}$"
@@ -18,7 +18,7 @@
                [ngClass]="{'form-control-after' : phone.valid && phone.touched}">
         <div [hidden]="phone.valid || !phone.touched"
              class="control-alert">
-          Phone is required
+          {{literals.phoneRequired}}
         </div>
 
         <input type="text" class="form-control" id="street"
@@ -28,7 +28,7 @@
                [ngClass]="{'form-control-after' : street.valid && street.touched}">
         <div [hidden]="street.valid || !street.touched"
              class="control-alert">
-          Street is required
+          {{literals.streetRequired}}
         </div>
 
         <input type="text" class="form-control" id="building"
@@ -38,7 +38,7 @@
                [ngClass]="{'form-control-after' : building.valid && building.touched}">
         <div [hidden]="building.valid || !building.touched"
              class="control-alert">
-          Building is required
+          {{literals.buildingRequired}}
         </div>
 
         <input type="text" class="form-control" id="suite"
@@ -53,7 +53,7 @@
                [ngClass]="{'form-control-after' : city.valid && city.touched}">
         <div [hidden]="city.valid || !city.touched"
              class="control-alert">
-          City is required
+          {{literals.cityRequired}}
         </div>
 
         <input type="text" class="form-control" id="zipCode" pattern="^\d{2}-\d{3}$"
@@ -63,10 +63,10 @@
                [ngClass]="{'form-control-after' : zipCode.valid && zipCode.touched}">
         <div [hidden]="zipCode.valid || !zipCode.touched"
              class="control-alert">
-          Zip code is required
+          {{literals.zipCodeRequired}}
         </div>
 
-        <button class="orange-empty-button" (click)="addAddress()" [disabled]="!addressForm.form.valid">Save</button>
+        <button class="orange-empty-button" (click)="addAddress()" [disabled]="!addressForm.form.valid">{{literals.saveButton}}</button>
 
         <button class="orange-empty-button dummy-button" (click)="mockAddress(addressForm)">Fill it with dummy address</button>
     </form>

@@ -5,7 +5,7 @@ import {DataService} from '../../services/data.service';
 import {EmitterMessages} from '../../model/emitter-messages';
 import {ViewResolverService} from '../../services/view-resolver.service';
 import {ProcessManagerService} from '../../services/process-manager.service';
-import {Additions} from '../../model/generated-dto';
+import {Additions, Step} from '../../model/generated-dto';
 
 @Component({
   selector: 'app-pizzeria-answered',
@@ -21,6 +21,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
   public pickAdditions = false;
   public additionsPicked = false;
   public delivery = false;
+  public literals: {[index: string]: string};
 
   public showPizzaDialog: boolean = false;
 
@@ -33,6 +34,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
     this.viewResolver.checkStep();
     this.conversationMap = this.data.conversations;
     this.additions = this.data.additions;
+    this.literals = this.data.getLiteralsForStep(Step.PIZZERIA_ANSWERED);
     popupService.changeEmitted$.subscribe(
       text => {
         if (text === EmitterMessages.PIZZA_PICKED) {

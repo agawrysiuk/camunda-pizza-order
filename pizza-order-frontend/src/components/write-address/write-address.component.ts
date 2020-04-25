@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
-import {DeliveryAddress} from '../../model/generated-dto';
+import {DeliveryAddress, Step} from '../../model/generated-dto';
 import {ViewResolverService} from '../../services/view-resolver.service';
 import {ProcessManagerService} from '../../services/process-manager.service';
 import {InputMaskEnum, InputMaskService} from '../../services/input-mask.service';
@@ -17,6 +17,7 @@ export class WriteAddressComponent implements OnInit {
   address: DeliveryAddress;
   inputMaskEnum: typeof InputMaskEnum = InputMaskEnum;
   validAddress: boolean = false;
+  public literals: {[index: string]: string};
 
   constructor(private data: DataService,
               private router: Router,
@@ -25,6 +26,7 @@ export class WriteAddressComponent implements OnInit {
               private inputMaskService: InputMaskService) {
     this.viewResolver.checkStep();
     this.address = this.data.variables.deliveryAddress;
+    this.literals = this.data.getLiteralsForStep(Step.WRITE_ADDRESS);
   }
 
   ngOnInit() {

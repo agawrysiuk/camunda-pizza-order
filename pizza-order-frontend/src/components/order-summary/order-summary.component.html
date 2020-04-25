@@ -2,12 +2,12 @@
   <div class="order-tab order-start-animation">
     <div class="order-details">
       <img class="order-ribbon" src="/assets/images/order-ribbon.png" alt="order-ribbon"/>
-      <span class="order-title">Confirm your order:</span>
+      <span class="order-title">{{literals.confirmOrder}}</span>
       <div class="order-data">
         <div class="data-row">
-          <span class="data-text flex-grow">Item:</span>
-          <span class="data-text">Quantity:</span>
-          <span class="data-text">Price:</span>
+          <span class="data-text flex-grow">{{literals.itemColumn}}</span>
+          <span class="data-text">{{literals.quantityColumn}}</span>
+          <span class="data-text">{{literals.priceColumn}}</span>
         </div>
         <hr class="order-line"/>
         <div class="data-row">
@@ -23,12 +23,12 @@
         <hr class="order-line"/>
         <div class="data-row">
           <span class="data-text flex-grow"></span>
-          <span class="data-text">Total:</span>
+          <span class="data-text">{{literals.totalMessage}}</span>
           <span class="data-text">{{data.variables.pizza.price + 1}} EUR</span>
         </div>
       </div>
-      <button class="orange-button" (click)="orderApproved()">Order now</button>
-      <button class="orange-empty-button" (click)="orderDeclined()">Cancel</button>
+      <button class="orange-button" (click)="orderApproved()">{{literals.orderButton}}</button>
+      <button class="orange-empty-button" (click)="orderDeclined()">{{literals.cancelButton}}</button>
     </div>
   </div>
 </div>

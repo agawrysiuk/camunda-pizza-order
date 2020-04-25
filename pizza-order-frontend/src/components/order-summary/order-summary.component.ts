@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {DataService} from '../../services/data.service';
 import {EmitterMessages} from '../../model/emitter-messages';
@@ -9,6 +9,8 @@ import {EmitterMessages} from '../../model/emitter-messages';
   styleUrls: ['./order-summary.component.css']
 })
 export class OrderSummaryComponent implements OnInit {
+
+  @Input() literals: {[index: string]: string};
 
   constructor(private popupService: PopupService,
               private data: DataService) {
