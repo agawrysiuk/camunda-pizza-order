@@ -6,7 +6,6 @@ Check out the short view here:
 ![Order Pizza Gif](https://github.com/agawrysiuk/camunda-pizza-order/blob/master/animation.gif)
 
 ## To do:
-- Add H2 database with literals to display on the front page
 - Improve order summary
 - Data validity on the backend
 - Add Loader?
@@ -21,3 +20,5 @@ Check out the short view here:
 - Convert CSS to SASS
 - Add support for the mobile view
 - Fill README.md with information about the project
+- Add cache to database calls?
+- Let people change the literals on the backend?
