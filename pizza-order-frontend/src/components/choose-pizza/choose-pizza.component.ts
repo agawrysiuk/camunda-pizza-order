@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Pizza} from '../../model/generated-dto';
+import {DataService} from '../../services/data.service';
 
 
 @Component({
@@ -9,28 +10,11 @@ import {Pizza} from '../../model/generated-dto';
 })
 export class ChoosePizzaComponent implements OnInit {
 
-  pizzas: Pizza[] = [
-    {
-      name: 'Salami',
-      photo: '/assets/images/pizzas/salami.jpg',
-      components: 'Tomato sauce, Cheese, Salami',
-      price: '8.99'
-    },
-    {
-      name: 'Four-Cheese',
-      photo: '/assets/images/pizzas/four-cheese.jpg',
-      components: 'Tomato sauce, Ricotta, Mozzarella, Gorgonzola Piccante, Parmesan',
-      price: '7.99'
-    },
-    {
-      name: 'Capriciosa',
-      photo: '/assets/images/pizzas/capriciosa.jpg',
-      components: 'Tomato sauce, Cheese, Italian baked ham, Mushroom, Eggs',
-      price: '10.99'
-    }
-  ];
+  pizzas: Pizza[] = [];
 
-  constructor() { }
+  constructor(private data: DataService) {
+    this.pizzas = this.data.pizzas;
+  }
 
   ngOnInit() {
   }

@@ -19,7 +19,6 @@ export class PizzeriaAnsweredComponent implements OnInit {
   public additions: Additions[];
 
   public pickAdditions = false;
-  public additionsPicked = false;
   public delivery = false;
   public literals: {[index: string]: string};
 
@@ -88,8 +87,7 @@ export class PizzeriaAnsweredComponent implements OnInit {
 
   chooseAddition(pickedAddition: Additions) {
     this.data.variables.additions = pickedAddition;
-    this.additionsPicked = true;
-    for (let addition of this.additions) {
+    for (const addition of this.additions) {
       if (addition !== pickedAddition) {
         document.getElementById(addition.id + '-addition').className = 'display-none';
       } else {

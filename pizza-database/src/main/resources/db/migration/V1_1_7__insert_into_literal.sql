@@ -1,8 +1,6 @@
 INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'pizzeria-answered', 'welcomeMessage','Welcome to our pizzeria! This is Joanna, how can I help you today?', 'waitress welcome message');
 INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'pizzeria-answered', 'pizzaPickedMessage',' looks nice.', 'waitress reaction to picking pizza');
 INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'pizzeria-answered', 'additionMessage','Great! Do you want to pick some extras to your pizza?', 'waitress asking for additions');
-INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'pizzeria-answered', 'additionPickedMessage','I would choose it too!', 'waitress message after addition picked');
-INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'pizzeria-answered', 'additionNotPickedMessage','Oki-doki!', 'waitress message after no addition picked');
 INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'pizzeria-answered', 'addressMessage','What address should we deliver to?', 'waitress asking for the delivery address');
 INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'write-address', 'saveButton','Save', 'button save address');
 INSERT INTO literal VALUES(SEQ_LITERAL.nextval , 'write-address', 'nameRequired','Name is required', 'name required field');

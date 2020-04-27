@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {PopupService} from '../../services/popup.service';
 import {EmitterMessages} from '../../model/emitter-messages';
 import {ViewResolverService} from '../../services/view-resolver.service';
-import {Step} from "../../model/generated-dto";
-import {DataService} from "../../services/data.service";
+import {Step} from '../../model/generated-dto';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-thank-you',
@@ -11,6 +11,8 @@ import {DataService} from "../../services/data.service";
   styleUrls: ['./thank-you.component.css']
 })
 export class ThankYouComponent implements OnInit {
+
+  @ViewChild('title-text', {static: true}) titleText: ElementRef;
 
   showOrderDialog = false;
   public literals: {[index: string]: string};
@@ -23,10 +25,10 @@ export class ThankYouComponent implements OnInit {
     this.literals = this.data.getLiteralsForStep(Step.THANK_YOU);
     this.popupService.changeEmitted$.subscribe(text => {
       if (text === EmitterMessages.ORDER_APPROVED) {
-        document.getElementById('title-text').innerHTML = this.literals.orderConfirmed;
+        this.titleText.nativeElement.innerHTML = this.literals.orderConfirmed;
       }
       if (text === EmitterMessages.ORDER_DECLINED) {
-        document.getElementById('title-text').innerHTML = this.literals.orderCancelled;
+        this.titleText.nativeElement.innerHTML = this.literals.orderCancelled;
       }
       this.showOrderDialog = false;
     });
@@ -34,5 +36,4 @@ export class ThankYouComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

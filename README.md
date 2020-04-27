@@ -6,7 +6,6 @@ Check out the short view here:
 ![Order Pizza Gif](https://github.com/agawrysiuk/camunda-pizza-order/blob/master/animation.gif)
 
 ## To do:
-- Improve order summary
 - Data validity on the backend
 - Add Loader?
 - Fix getStepMessage + add a builder for the incorrect step message
