@@ -12,19 +12,19 @@
         <hr class="order-line"/>
         <div class="data-row">
           <span class="data-text flex-grow">{{data.variables.pizza.name}}</span>
-          <span class="data-text">1</span>
+          <span class="data-text">{{quantity}}</span>
           <span class="data-text">{{data.variables.pizza.price}} EUR</span>
         </div>
-        <div class="data-row">
+        <div *ngIf="data.variables.additions.id != 0" class="data-row">
           <span class="data-text flex-grow">{{data.variables.additions.addition}}</span>
-          <span class="data-text">1</span>
-          <span class="data-text">1 EUR</span>
+          <span class="data-text">{{quantity}}</span>
+          <span class="data-text">{{data.variables.additions.price}} EUR</span>
         </div>
         <hr class="order-line"/>
         <div class="data-row">
           <span class="data-text flex-grow"></span>
           <span class="data-text">{{literals.totalMessage}}</span>
-          <span class="data-text">{{data.variables.pizza.price + 1}} EUR</span>
+          <span class="data-text">{{totalPrice}} EUR</span>
         </div>
       </div>
       <button class="orange-button" (click)="orderApproved()">{{literals.orderButton}}</button>

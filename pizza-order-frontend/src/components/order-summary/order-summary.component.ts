@@ -11,9 +11,12 @@ import {EmitterMessages} from '../../model/emitter-messages';
 export class OrderSummaryComponent implements OnInit {
 
   @Input() literals: {[index: string]: string};
+  quantity: number = 1;
+  totalPrice: number;
 
   constructor(private popupService: PopupService,
               private data: DataService) {
+    this.totalPrice = Number(this.data.variables.pizza.price) + Number(this.data.variables.additions.price);
   }
 
   ngOnInit() {
