@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import pl.agawrysiuk.camunda.utils.CamundaVariablesConverter;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
 import pl.agawrysiuk.pizzashareddtos.camunda.messages.StepMessage;
+import pl.agawrysiuk.pizzashareddtos.camunda.messages.StepReplyMessage;
 
 import java.util.Map;
 
@@ -36,10 +37,16 @@ public class ProcessManager {
         Map<String, Object> variablesMap;
         try {
             variablesMap = runtimeService.getVariables(processId);
-            return new StepMessage();
+            return StepMessage.builder()
+                    .processId(processId)
+                    .replyMessage(StepReplyMessage.REQUEST_OK)
+                    .stepId((String) variablesMap.get("stepId"))
+                    .build();
         } catch (NullValueException e) {
             log.info("Got request ID with invalid processId = {}", processId);
         }
-        return null;
+        return StepMessage.builder()
+                .replyMessage(StepReplyMessage.BAD_PROCESSID)
+                .build();
     }
 }

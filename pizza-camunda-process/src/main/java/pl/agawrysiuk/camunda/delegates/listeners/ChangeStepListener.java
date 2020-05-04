@@ -18,6 +18,7 @@ public class ChangeStepListener implements ExecutionListener {
     @Override
     public void notify(DelegateExecution execution) {
         CamundaMessage camundaMessage = buildMessage(execution);
+        execution.setVariable("stepId", execution.getCurrentActivityId());
         restTemplate.put("http://localhost:8080/switch-step", camundaMessage);
     }
 

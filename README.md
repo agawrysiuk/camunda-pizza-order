@@ -8,8 +8,6 @@ Check out the short view here:
 ## To do:
 - Data validity on the backend
 - Add Loader?
-- Fix getStepMessage + add a builder for the incorrect step message
-- Improve adding css classes to the project
 - Add timeout for the process (20M?) + 'Sorry Page'
 - Enhance Camunda process:
     - Add service steps for Cooking Pizza, Out For Deliver, and Delivered (updatable by UI created for pizzeria's side)
