@@ -12,7 +12,7 @@ import {DataService} from '../../services/data.service';
 })
 export class ThankYouComponent implements OnInit {
 
-  @ViewChild('title-text', {static: true}) titleText: ElementRef;
+  @ViewChild('titleText', {static: true}) titleText: ElementRef;
 
   showOrderDialog = false;
   public literals: {[index: string]: string};

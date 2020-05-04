@@ -7,6 +7,7 @@ Check out the short view here:
 
 ## To do:
 - Data validity on the backend
+    - Throw error + ControllerAdvice
 - Add Loader?
 - Add timeout for the process (20M?) + 'Sorry Page'
 - Enhance Camunda process:
