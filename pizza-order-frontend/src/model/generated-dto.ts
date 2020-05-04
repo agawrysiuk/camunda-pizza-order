@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.21.588 on 2020-04-25 22:14:29.
+// Generated using typescript-generator version 2.21.588 on 2020-05-04 20:30:52.
 
 export interface Conversation {
     id: number;

@@ -1,9 +1,9 @@
-package pl.agawrysiuk.camunda.utils.validation;
+package pl.agawrysiuk.camunda.utils;
 
 import lombok.experimental.UtilityClass;
-import pl.agawrysiuk.camunda.utils.validation.classess.PizzeriaAnswered;
-import pl.agawrysiuk.camunda.utils.validation.classess.WriteAddress;
 import pl.agawrysiuk.pizzashareddtos.Step;
+import pl.agawrysiuk.pizzashareddtos.utils.validation.PizzeriaAnswered;
+import pl.agawrysiuk.pizzashareddtos.utils.validation.WriteAddress;
 
 import java.util.HashMap;
 import java.util.Map;
