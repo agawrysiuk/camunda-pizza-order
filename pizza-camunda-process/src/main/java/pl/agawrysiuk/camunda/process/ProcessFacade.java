@@ -6,6 +6,7 @@ import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.delegate.BpmnError;
 import org.springframework.stereotype.Component;
 import pl.agawrysiuk.camunda.utils.CamundaVariablesConverter;
+import pl.agawrysiuk.camunda.validation.DataValidator;
 import pl.agawrysiuk.feign.CamundaClient;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.CamundaVariables;
 import pl.agawrysiuk.pizzashareddtos.camunda.dtos.Task;
@@ -19,8 +20,10 @@ public class ProcessFacade {
 
     private final CamundaClient camundaClient;
     private final RuntimeService runtimeService;
+    private final DataValidator validator;
 
     public void finishStep(String processId, CamundaVariables variables) {
+        validator.validate(variables);
         List<Task> taskList = camundaClient.getActiveTasks(processId);
         boolean taskListResult = confirmListSizeOne(taskList);
         if (taskListResult) {
